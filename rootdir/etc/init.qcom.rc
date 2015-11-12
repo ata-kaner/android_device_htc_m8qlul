@@ -566,7 +566,7 @@ service vendor.vm_bms /system/vendor/bin/vm_bms
     disabled
 
 service wcnss-service /system/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi oem_2950 radio
     oneshot
