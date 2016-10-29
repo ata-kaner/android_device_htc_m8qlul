@@ -35,6 +35,8 @@ on early-init
     chown system system /sys/kernel/debug/kgsl/proc
 
 
+    symlink /dev/pn544 /dev/pn54x
+
 on init
     chmod 0644 /proc/cmdline
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
