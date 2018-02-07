@@ -39,7 +39,7 @@ on init
 
 on fs
     symlink /dev/block/platform/soc.0/7824900.sdhci /dev/block/bootdevice
-    mount_all /fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
 
 on post-fs
     chown root log /proc/vmallocinfo
