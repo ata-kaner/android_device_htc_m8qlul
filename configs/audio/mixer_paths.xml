@@ -191,6 +191,9 @@
     <!-- Amp ctrl -->
     <ctl name="HS_AMP_EN Switch" value="0" />
 
+    <!-- DTS eagle HPX -->
+    <ctl name="Set HPX OnOff" value="1"/>
+
     <!-- These are audio route (FE to BE) specific mixer settings -->
     <path name="bt-sco-wb-samplerate">
         <ctl name="Internal BTSCO SampleRate" value="16000" />
