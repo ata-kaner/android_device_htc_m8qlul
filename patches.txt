@@ -3,3 +3,8 @@
 
 # RIL fix
 71210/1 http://gerrit.aicp-rom.com bionic
+
+# F2FS fix
+222458/1 https://review.lineageos.org external/f2fs-tools
+222459/2 https://review.lineageos.org external/f2fs-tools
+222460/1 https://review.lineageos.org external/f2fs-tools
