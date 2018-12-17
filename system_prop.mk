@@ -151,7 +151,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.protected_contents=true
+    ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
