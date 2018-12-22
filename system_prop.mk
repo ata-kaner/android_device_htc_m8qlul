@@ -83,6 +83,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.qcom_parser=3314291 \
     drm.service.enabled=1
 
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.am.reschedule_service=true \
+    ro.vendor.qti.sys.fw.bservice_enable=true
+
 # NITZ
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_plmn="" \
