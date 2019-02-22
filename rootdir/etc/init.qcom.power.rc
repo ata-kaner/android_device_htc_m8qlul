@@ -130,6 +130,7 @@ on enable-low-power
 
     rm /data/system/perfd/default_values
     start perfd
+    setprop vendor.post_boot.parsed 1
 
 on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
