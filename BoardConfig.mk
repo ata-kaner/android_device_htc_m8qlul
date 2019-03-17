@@ -107,6 +107,9 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
+# IPA
+USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
+
 # Kernel
 # BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 BOARD_DTBTOOL_ARGS := --dt-tag "htc,project-id = <"
