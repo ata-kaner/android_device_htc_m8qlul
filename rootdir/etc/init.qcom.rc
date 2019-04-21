@@ -416,6 +416,9 @@ on boot
     chown system system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
     chowh system system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
 
+    # Set dummy mac address
+    setprop ro.boot.btmacaddr "00:00:00:00:00:00"
+
 on charger
 
     wait /dev/block/bootdevice/by-name/system
