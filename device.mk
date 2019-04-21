@@ -365,7 +365,6 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensorservice \
     android.hardware.sensors@1.0-impl
 
 # Thermal
