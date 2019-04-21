@@ -156,16 +156,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
 
-# Filesystem
-PRODUCT_PACKAGES += \
-    e2fsck \
-    make_ext4fs \
-    setup_fs \
-    fsck.f2fs \
-    make_f2fs \
-    mkfs.f2fs \
-    mount.exfat
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
