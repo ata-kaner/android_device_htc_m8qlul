@@ -316,19 +316,13 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
     libOmxCore \
     libOmxVdec \
     libOmxVenc \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxEvrcEnc \
-    libOmxVdecHevc \
     libOmxQcelp13Enc \
-    libOmxSwVencHevc \
-    libOmxVidcCommon \
-    libOmxSwVencMpeg4 \
     libstagefrighthw
 
 # Power HAL
