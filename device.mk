@@ -177,15 +177,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FlipFlap
 
-# SIM stuff existent on stock
-PRODUCT_PACKAGES += \
-    requestsync \
-    SmartcardService
-
-PRODUCT_PACKAGES += \
-    org.simalliance.openmobileapi \
-    org.simalliance.openmobileapi.xml
-
 # Gestures
 PRODUCT_PACKAGES += \
     GestureHandler
