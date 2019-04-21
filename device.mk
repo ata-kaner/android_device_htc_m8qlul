@@ -22,8 +22,8 @@ $(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay \
-                           $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
