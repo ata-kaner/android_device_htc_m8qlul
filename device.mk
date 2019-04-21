@@ -210,17 +210,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
-
-
-# SIM stuff existent on stock
-PRODUCT_PACKAGES += \
-    requestsync \
-    SmartcardService
-
-PRODUCT_PACKAGES += \
-    org.simalliance.openmobileapi \
-    org.simalliance.openmobileapi.xml
-
 # Gestures
 PRODUCT_PACKAGES += \
     GestureHandler
