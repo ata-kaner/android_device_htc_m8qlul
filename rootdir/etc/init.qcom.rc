@@ -63,7 +63,7 @@ on post-fs-data
     mkdir /data/misc/radio 0775 system radio
 
     # Audio subsystem
-    mkdir /data/misc/audio 0770 audio audio
+    mkdir /data/vendor/misc/audio 0770 audio audio
     
     # Create directory for dts
     mkdir /data/misc/dts 0770 media audio
