@@ -183,6 +183,7 @@
     <ctl name="ADC2 Gain" value="G_0_DB" />
     <ctl name="ADC3 Gain" value="G_0_DB" />
     <!-- htc ctl end -->
+    <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="ZERO" />
     <!-- Dummy ctl -->
     <ctl name="QUAT_MI2S_DL_COMPR_STUB Switch" value="0" />
     <ctl name="PRI_MI2S_DL_COMPR_STUB Switch" value="0" />
@@ -1202,5 +1203,49 @@ so we keep speaker for output device -->
         <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
 
+    <!-- Speaker Protection -->
+    <path name="deep-buffer-playback speaker-protected">
+        <path name="deep-buffer-playback" />
+    </path>
+
+    <path name="low-latency-playback speaker-protected">
+        <path name="low-latency-playback" />
+    </path>
+
+    <path name="compress-offload-playback speaker-protected">
+        <path name="compress-offload-playback" />
+    </path>
+
+    <path name="voice-call speaker-protected">
+    </path>
+
+    <path name="voice2-call speaker-protected">
+    </path>
+
+    <path name="volte-call speaker-protected">
+    </path>
+
+    <path name="compress-voip-call speaker-protected">
+    </path>
+
+    <path name="speaker-protected">
+        <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
+        <ctl name="AIF4_VI Mixer SPKR_VI_2" value="1" />
+        <path name="speaker" />
+        <ctl name="VI_FEED_TX Channels" value="Two" />
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
+        <ctl name="SLIM0_RX_VI_FB_RCH_MUX"  value="SLIM4_TX" />
+    </path>
+
+    <path name="vi-feedback">
+    </path>
+
+    <path name="deep-buffer-playback speaker-protected">
+        <path name="deep-buffer-playback" />
+    </path>
+
+    <path name="spkr-vi-record">
+        <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
+    </path>
 
 </mixer>
