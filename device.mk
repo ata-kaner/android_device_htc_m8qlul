@@ -240,6 +240,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_ril
 
+# codeaurora telephony-ext
+PRODUCT_PACKAGES += \
+  telephony-ext
+PRODUCT_BOOT_JARS += \
+   telephony-ext
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@1.0-service-legacymm
