@@ -82,8 +82,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
     ro.opengles.version=196608 \
     ro.sf.lcd_density=420 \
-    debug.enable.sglscale=1 \
-    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.latch_unsignaled=1
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
