@@ -619,4 +619,7 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/restart_adbd 1
 
 on property:sys.boot_completed=1
-    write /dev/kmsg "Boot completed "
+    write /dev/kmsg "Boot completed"
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind

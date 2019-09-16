@@ -65,6 +65,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-gesturehandler.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-gesturehandler.xml
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
