@@ -596,6 +596,9 @@ on property:ro.data.large_tcp_window_size=true
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/restart_adbd 1
 
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed"
     swapon_all /system/vendor/etc/fstab.qcom
