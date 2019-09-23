@@ -211,6 +211,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 # RIL
 TARGET_RIL_VARIANT := caf
 
+# Security Patch Level
+VENDOR_SECURITY_PATCH := 2016-10-01
+
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 
