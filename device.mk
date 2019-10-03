@@ -323,6 +323,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.qcom_first_stage \
     fstab.swap \
     init.qcom.rc \
     init.htc.usb.rc \
