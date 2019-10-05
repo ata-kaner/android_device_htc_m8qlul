@@ -170,8 +170,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /data/tombstones:/tombstones
 
 # Power
-TARGET_HAS_LEGACY_POWER_STATS := true
-TARGET_HAS_NO_WLAN_STATS := true
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 
 # Qualcomm support
