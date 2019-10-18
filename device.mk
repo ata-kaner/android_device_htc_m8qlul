@@ -207,8 +207,7 @@ PRODUCT_PACKAGES += \
 
 # JamesDSPManager
 PRODUCT_PACKAGES += \
-    JamesDSPManager \
-    libjamesDSPImpulseToolbox
+    JamesDSPManager
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
