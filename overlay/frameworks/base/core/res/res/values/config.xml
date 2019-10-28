@@ -306,7 +306,7 @@
         <item>LPP_PROFILE=0</item>
 
     </string-array>
-    <!-- Disable rounded corners on windows to improve graphics performance -->
+    <!-- Disable rounded corn formance -->
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 
         <!-- Default values for display color temperature -->
@@ -347,4 +347,9 @@
         <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+
+        <!-- The list of components which should be automatically disabled for a specific device. -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+    </string-array>
 </resources>
