@@ -142,6 +142,9 @@ endif
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# LMKD stats logging
+TARGET_LMKD_STATS_LOG := true
+
 # NFC
 BOARD_NFC_CHIPSET := pn547
 BOARD_NFC_HAL_SUFFIX := msm8916
