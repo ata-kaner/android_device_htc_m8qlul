@@ -4,6 +4,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0 \
     vendor.audio_hal.period_size=192 \
     media.aac_51_output_enabled=true \
     audio.offload.buffer.size.kb=1024 \
