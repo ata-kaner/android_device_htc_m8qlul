@@ -47,6 +47,10 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    # start qseecomd early
+    # vold needs keymaster for FDE
+    start vendor.qseecomd
+    
 on fs
     symlink /dev/block/platform/soc.0/7824900.sdhci /dev/block/bootdevice
     mount_all /vendor/etc/fstab.qcom
@@ -481,8 +485,6 @@ on boot
     # This is what wifi's called
     setprop wifi.interface wlan0
 
-    start qseecomd
-
     # load ADSP
     write /sys/kernel/boot_adsp/boot 1
 
@@ -548,6 +550,7 @@ service vendor.qseecomd /system/vendor/bin/qseecomd
     class main
     user root
     group root
+    shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.rfs_access /system/vendor/bin/rfs_access
