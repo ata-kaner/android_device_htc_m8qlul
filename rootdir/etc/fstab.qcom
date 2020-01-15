@@ -12,7 +12,7 @@
 /dev/block/platform/soc.0/7824900.sdhci/boot                      /boot            emmc    defaults                                                                                       recoveryonly
 /dev/block/platform/soc.0/7824900.sdhci/recovery                  /recovery        emmc    defaults                                                                                       recoveryonly
 /dev/block/platform/soc.0/7824900.sdhci/misc                      /misc            emmc    defaults                                                                                       defaults
-/dev/block/platform/soc.0/7824900.sdhci/userdata                  /data            ext4    noatime,nosuid,nodev,barrier=1,data=ordered,journal_async_commit,errors=panic                  wait,check,encryptable=/dev/block/platform/soc.0/7824900.sdhci/extra
+/dev/block/platform/soc.0/7824900.sdhci/userdata                  /data            ext4    noatime,nosuid,nodev,barrier=1,data=ordered,journal_async_commit,errors=panic                  wait,check,encryptable=/dev/block/platform/soc.0/7824900.sdhci/extra,quota
 /dev/block/platform/soc.0/7824900.sdhci/cache                     /cache           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,journal_async_commit,errors=panic                  wait,check
 
 /dev/block/platform/soc.0/7824900.sdhci/radio                     /firmware/radio  vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0   wait
