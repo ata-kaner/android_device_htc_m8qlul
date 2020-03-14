@@ -133,6 +133,9 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl
 
+# DeviceParts
+PRODUCT_PACKAGES += DeviceParts
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -164,10 +167,6 @@ PRODUCT_PACKAGES += \
 # FlipFlap
 PRODUCT_PACKAGES += \
     FlipFlap
-
-# Gestures
-PRODUCT_PACKAGES += \
-    GestureHandler
 
 # GPS
 PRODUCT_PACKAGES += \
