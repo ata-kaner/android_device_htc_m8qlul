@@ -484,6 +484,12 @@ on boot
     # load ADSP
     write /sys/kernel/boot_adsp/boot 1
 
+    # DeviceParts
+
+    # Vibrator voltage
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chmod 0664 /sys/devices/virtual/timed_output/vibrator/vtg_level
+
 service vendor.ppd /system/vendor/bin/mm-pp-daemon
     class hal
     user system
