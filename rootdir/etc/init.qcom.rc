@@ -459,6 +459,9 @@ on boot
 
     #SSD_HDMI end
 
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chmod 0664 /sys/devices/virtual/timed_output/vibrator/vtg_level
+
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
     # the connection they belong to.
