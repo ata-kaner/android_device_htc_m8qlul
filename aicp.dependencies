@@ -2,16 +2,16 @@
   {
     "repository": "AICP/kernel_htc_msm8939",
     "target_path": "kernel/htc/msm8939",
-    "branch":      "p9.0"
+    "branch":      "q10.0"
   },
   {
     "repository": "AICP/packages_apps_FlipFlap",
     "target_path": "packages/apps/FlipFlap",
-    "branch":      "p9.0"
+    "branch":      "q10.0"
   },
   {
-    "repository": "LineageOS/android_packages_resources_devicesettings",
-    "target_path": "packages/resources/devicesettings",
-    "branch":      "lineage-16.0"
+    "repository":  "Claymore1297/packages_resources_deviceparts",
+    "target_path": "packages/resources/deviceparts",
+    "branch":      "q10.0"
   }
 ]
