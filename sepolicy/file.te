@@ -11,4 +11,5 @@ type sysfs_flashlight, fs_type, sysfs_type;
 # /sys/android_camera_awb_cal/*
 type camera_cal_sysfs, fs_type, sysfs_type;
 
-
+#backlight dimmer
+type sysfs_backlight_dimmer, sysfs_type, fs_type;
