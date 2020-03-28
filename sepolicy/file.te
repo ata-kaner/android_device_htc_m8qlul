@@ -5,6 +5,9 @@ type debugfs_heaps_system, fs_type, debugfs_type;
 # /carrier/qcril.db
 type qcril_file,  file_type;
 
+# dimmer
+type sysfs_backlight_dimmer, sysfs_type, fs_type;
+
 # /sys/class/leds/indicator/ModeRGB
 type sysfs_flashlight, fs_type, sysfs_type;
 

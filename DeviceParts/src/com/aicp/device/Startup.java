@@ -34,5 +34,6 @@ public class Startup extends BroadcastReceiver {
     public static void restoreAfterUserSwitch(Context context) {
 
         VibratorStrengthPreference.restore(context);
+        BacklightDimmerPreference.restore(context);
     }
 }
