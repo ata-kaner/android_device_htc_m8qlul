@@ -4,6 +4,9 @@
 /dev/tfa9887                                                                          u:object_r:audio_device:s0
 /dev/tfa9887l                                                                         u:object_r:audio_device:s0
 
+# Binaries (recovery only)
+/system/bin/chargeled                                                                u:object_r:healthd_exec:s0
+
 # Debugfiles
 /sys/kernel/debug/rmt_storage(/.*)?                                                   u:object_r:rmt_storage_debug_file:s0
 
