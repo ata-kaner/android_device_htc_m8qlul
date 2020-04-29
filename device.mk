@@ -65,6 +65,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-gesturehandler.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-gesturehandler.xml
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # APEX
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
@@ -330,6 +334,11 @@ PRODUCT_PACKAGES += \
     power.msm8916 \
     android.hardware.power@1.0-impl \
     android.hardware.power@1.0-service
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-vendorcompat \
+    libprotobuf-cpp-lite-vendorcompat
 
 # Ramdisk
 PRODUCT_PACKAGES += \
