@@ -134,7 +134,7 @@ PRODUCT_PACKAGES += \
     librmnetctl
 
 # DeviceParts
-PRODUCT_PACKAGES += DeviceParts
+PRODUCT_PACKAGES += DeviceParts_m8qlul
 
 # Display
 PRODUCT_PACKAGES += \
