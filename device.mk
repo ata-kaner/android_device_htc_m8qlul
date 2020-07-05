@@ -161,6 +161,9 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# DeviceParts
+PRODUCT_PACKAGES += DeviceParts_m8qlul
+
 # FlipFlap
 PRODUCT_PACKAGES += \
     FlipFlap
