@@ -243,7 +243,8 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.manager@1.0-java
+    libhidltransport \
+    libhwbinder
 
 # HTC Log Symbols
 PRODUCT_PACKAGES += \
