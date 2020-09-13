@@ -386,6 +386,10 @@ PRODUCT_COPY_FILES += \
     kernel/htc/msm8939/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_wlan_nv.bin:system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
     
+# VNDK
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so
+
 # WiFi Display
 ifneq ($(QCPATH),)
 PRODUCT_BOOT_JARS += WfdCommon
