@@ -34,3 +34,12 @@ cc_library_shared {
 
 }
 
+cc_library_shared {
+
+    srcs: ["libaudioclient_shim.cpp"],
+
+    shared_libs: ["libaudioclient"],
+
+    name: "libaudioclient_shim",
+
+}

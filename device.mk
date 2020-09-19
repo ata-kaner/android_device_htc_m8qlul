@@ -324,7 +324,8 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    libshim_ril
+    libshim_ril \
+    libaudioclient_shim
 
 # Seccomp
 PRODUCT_COPY_FILES += \

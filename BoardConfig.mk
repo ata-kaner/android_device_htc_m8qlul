@@ -172,6 +172,7 @@ BOARD_USES_QCOM_HARDWARE := true
 # Shims
 TARGET_LD_SHIM_LIBS := \
         /vendor/lib64/libril-qc-qmi-1.so|libshim_ril.so \
+        /vendor/lib64/libril-qc-qmi-1.so|libaudioclient_shim.so \
         /vendor/lib64/libizat_core.so|libshim_izat.so \
         /system/lib/liblog.so|liblog_htc.so \
         /system/lib64/liblog.so|liblog_htc.so \
