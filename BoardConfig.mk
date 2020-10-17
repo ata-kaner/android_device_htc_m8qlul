@@ -138,6 +138,9 @@ else
 TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
 endif
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # LMKD stats logging
 TARGET_LMKD_STATS_LOG := true
 
