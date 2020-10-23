@@ -1,4 +1,5 @@
 // Copyright (C) 2018 The LineageOS Project
+// Copyright (C) 2020 Android Ice Cold Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,6 +19,10 @@ cc_library_shared {
 
     name: "liblog_htc",
 
+    shared_libs: [
+        "liblog",
+        "libcutils"
+    ],
 }
 
 cc_library_shared {
@@ -26,4 +31,8 @@ cc_library_shared {
 
     name: "libhlg",
 
+    shared_libs: [
+        "liblog",
+        "libcutils"
+    ],
 }
