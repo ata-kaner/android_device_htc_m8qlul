@@ -209,6 +209,9 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
+# SVELTE config
+MALLOC_SVELTE := true
+
 # Video
 TARGET_HAVE_SIGNED_VENUS_FW := true
 
