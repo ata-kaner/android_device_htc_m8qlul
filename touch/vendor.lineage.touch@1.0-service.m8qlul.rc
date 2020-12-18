@@ -1,4 +1,5 @@
 service vendor.touch-hal-1-0-m8qlul /vendor/bin/hw/vendor.lineage.touch@1.0-service.m8qlul
+    interface vendor.lineage.touch@1.0::ITouchscreenGesture default
     class hal
     user system
     group system
