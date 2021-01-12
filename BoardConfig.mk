@@ -122,6 +122,8 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8939
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 ifeq ($(WITH_TWRP), true)
 TARGET_KERNEL_CONFIG := twrp_defconfig
 else
