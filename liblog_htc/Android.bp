@@ -21,7 +21,6 @@ cc_library_shared {
 
     name: "liblog_htc",
 
-    vendor: true,
 }
 
 cc_library_shared {
@@ -30,7 +29,6 @@ cc_library_shared {
 
     name: "libhlg",
 
-    vendor: true,
 }
 
 
