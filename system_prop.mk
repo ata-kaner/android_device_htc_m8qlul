@@ -88,6 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=420 \
     debug.enable.sglscale=1 \
     debug.sf.enable_gl_backpressure=1 \
+    debug.renderengine.backend=threaded
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
