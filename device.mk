@@ -370,10 +370,6 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.mem.sh
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
-
 # Renderscript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
