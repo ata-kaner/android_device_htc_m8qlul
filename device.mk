@@ -158,8 +158,7 @@ PRODUCT_PACKAGES += \
     memtrack.msm8916 \
     libtinyxml \
     libxml2 \
-    libgenlock \
-    liboverlay
+    libgenlock 
 
 # DRM
 PRODUCT_PACKAGES += \
