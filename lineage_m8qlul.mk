@@ -8,8 +8,10 @@ TARGET_SCREEN_WIDTH := 1080
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/htc/m8qlul/full_m8qlul.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit from m8qlul device
+$(call inherit-product, device/htc/m8qlul/device.mk)
 
 BOARD_VENDOR := htc
 
