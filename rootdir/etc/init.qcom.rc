@@ -30,9 +30,6 @@ import init.sensors.rc
 import init.qcom.power.rc
 
 on early-init
-
-    symlink /data/tombstones /tombstones
-
     mount debugfs debugfs /sys/kernel/debug
 
     chown system system /sys/kernel/debug/kgsl/proc
