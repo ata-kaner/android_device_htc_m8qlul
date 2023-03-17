@@ -4,7 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192 \
+    vendor.audio_hal.period_size=192 \
     media.aac_51_output_enabled=true \
     audio.offload.buffer.size.kb=1024 \
     audio.offload.multiple.enabled=false \
@@ -27,7 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.hwhevccodectype=0 \
     mm.enable.smoothstreaming=true \
     mmp.enable.3g2=true \
-    tunnel.audio.encode=false \
+    vendor.audio.tunnel.encode=false \
     vidc.enc.narrow.searchrange=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -42,7 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.fluencetype=fluence
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    use.voice.path.for.pcm.voip=true
+    vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
