@@ -208,9 +208,6 @@ TARGET_RECOVERY_DENSITY := xxhdpi
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# RIL
-TARGET_RIL_VARIANT := caf
-
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 
