@@ -48,3 +48,5 @@ extern "C" void _ZN7android21SurfaceComposerClient17setDisplaySurfaceERKNS_2spIN
 // asInterface(const sp<IBinder>& obj);
 extern "C" void _ZN7android14CameraMetadata14getTagFromNameEPKcPKNS_19VendorTagDescriptorEPj();
 
+extern "C" void _ZN7android20CameraParameters_EXTC1EPNS_16CameraParametersE() {};
+
