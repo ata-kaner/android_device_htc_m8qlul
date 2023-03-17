@@ -1,2 +1,2 @@
-allow system_app sysfs_gesture:file write;
-
+allow system_app sysfs_sensors:file rw_file_perms;
+allow system_app sysfs_sensors:dir search;
