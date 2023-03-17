@@ -143,9 +143,8 @@ PRODUCT_PACKAGES += \
 # Connectivity Engine Support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    librmnetctl \
-    libxml2
-
+    librmnetctl 
+    
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
