@@ -317,6 +317,9 @@ on boot
 
     chown system graphics /sys/class/leds/lcd-backlight/cabc_level_ctl
 
+    # Set dummy mac address
+    setprop ro.boot.btmacaddr "00:00:00:00:00:00"
+    
     ##### LINE SEPARATES OLD FROM NEW
 
     # permissions for NFC
