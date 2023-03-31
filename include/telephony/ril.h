@@ -238,6 +238,17 @@ typedef enum {
 typedef enum {
     RADIO_STATE_OFF = 0,                   /* Radio explictly powered off (eg CFUN=0) */
     RADIO_STATE_UNAVAILABLE = 1,           /* Radio unavailable (eg, resetting or not booted) */
+    /* States 2-9 below are deprecated. Just leaving them here for backward compatibility. */
+    RADIO_STATE_SIM_NOT_READY = 2,         /* Radio is on, but the SIM interface is not ready */
+    RADIO_STATE_SIM_LOCKED_OR_ABSENT = 3,  /* SIM PIN locked, PUK required, network
+                                              personalization locked, or SIM absent */
+    RADIO_STATE_SIM_READY = 4,             /* Radio is on and SIM interface is available */
+    RADIO_STATE_RUIM_NOT_READY = 5,        /* Radio is on, but the RUIM interface is not ready */
+    RADIO_STATE_RUIM_READY = 6,            /* Radio is on and the RUIM interface is available */
+    RADIO_STATE_RUIM_LOCKED_OR_ABSENT = 7, /* RUIM PIN locked, PUK required, network
+                                              personalization locked, or RUIM absent */
+    RADIO_STATE_NV_NOT_READY = 8,          /* Radio is on, but the NV interface is not available */
+    RADIO_STATE_NV_READY = 9,              /* Radio is on and the NV interface is available */
     RADIO_STATE_ON = 10                    /* Radio is on */
 } RIL_RadioState;
 
@@ -607,6 +618,7 @@ typedef struct {
              * clir == 2 on "CLIR suppression" (allow CLI presentation)
              */
     RIL_UUS_Info *  uusInfo;    /* NULL or Pointer to User-User Signaling Information */
+    int reserved;               /* qcom's ril library Dial structure has extra 4 bytes */
 } RIL_Dial;
 
 typedef struct {
@@ -1277,6 +1289,11 @@ typedef struct {
 } RIL_EVDO_SignalStrength;
 
 typedef struct {
+    int dbm;
+    int ecno;
+} RIL_ATT_SignalStrength;
+
+typedef struct {
     int signalStrength;  /* Valid values are (0-31, 99) as defined in TS 27.007 8.5 */
     int rsrp;            /* The current Reference Signal Receive Power in dBm multipled by -1.
                           * Range: 44 to 140 dBm
@@ -1360,15 +1377,27 @@ typedef struct {
 } RIL_SignalStrength_v10;
 
 typedef struct {
+    RIL_GW_SignalStrength   GW_SignalStrength;
+    RIL_CDMA_SignalStrength CDMA_SignalStrength;
+    RIL_EVDO_SignalStrength EVDO_SignalStrength;
+    RIL_ATT_SignalStrength  ATT_SignalStrength;
+    RIL_LTE_SignalStrength  LTE_SignalStrength;
+} RIL_SignalStrength_HTC;
+
+typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int lac;    /* 16-bit Location Area Code, 0..65535, INT_MAX if unknown  */
     int cid;    /* 16-bit GSM Cell Identity described in TS 27.007, 0..65535, INT_MAX if unknown  */
 } RIL_CellIdentityGsm;
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int lac;    /* 16-bit Location Area Code, 0..65535, INT_MAX if unknown  */
     int cid;    /* 16-bit GSM Cell Identity described in TS 27.007, 0..65535, INT_MAX if unknown  */
     int arfcn;  /* 16-bit GSM Absolute RF channel number; this value must be reported */
@@ -1377,7 +1406,9 @@ typedef struct {
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown  */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown  */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int lac;    /* 16-bit Location Area Code, 0..65535, INT_MAX if unknown  */
     int cid;    /* 28-bit UMTS Cell Identity described in TS 25.331, 0..268435455, INT_MAX if unknown  */
     int psc;    /* 9-bit UMTS Primary Scrambling Code described in TS 25.331, 0..511, INT_MAX if unknown */
@@ -1385,7 +1416,9 @@ typedef struct {
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown  */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown  */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int lac;    /* 16-bit Location Area Code, 0..65535, INT_MAX if unknown  */
     int cid;    /* 28-bit UMTS Cell Identity described in TS 25.331, 0..268435455, INT_MAX if unknown  */
     int psc;    /* 9-bit UMTS Primary Scrambling Code described in TS 25.331, 0..511; this value must be reported */
@@ -1409,7 +1442,9 @@ typedef struct {
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown  */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown  */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int ci;     /* 28-bit Cell Identity described in TS ???, INT_MAX if unknown */
     int pci;    /* physical cell id 0..503, INT_MAX if unknown  */
     int tac;    /* 16-bit tracking area code, INT_MAX if unknown  */
@@ -1417,7 +1452,9 @@ typedef struct {
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown  */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown  */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int ci;     /* 28-bit Cell Identity described in TS ???, INT_MAX if unknown */
     int pci;    /* physical cell id 0..503; this value must be reported */
     int tac;    /* 16-bit tracking area code, INT_MAX if unknown  */
@@ -1426,7 +1463,9 @@ typedef struct {
 
 typedef struct {
     int mcc;    /* 3-digit Mobile Country Code, 0..999, INT_MAX if unknown  */
-    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if unknown  */
+    int mnc;    /* 2 or 3-digit Mobile Network Code, 0..999;
+                   the most significant nibble encodes the number of digits - {2, 3, 0 (unset)};
+                   INT_MAX if unknown */
     int lac;    /* 16-bit Location Area Code, 0..65535, INT_MAX if unknown  */
     int cid;    /* 28-bit UMTS Cell Identity described in TS 25.331, 0..268435455, INT_MAX if unknown  */
     int cpid;    /* 8-bit Cell Parameters ID described in TS 25.331, 0..127, INT_MAX if unknown */
@@ -7008,6 +7047,27 @@ typedef struct {
  * "response" is a const RIL_KeepaliveStatus *
  */
 #define RIL_UNSOL_KEEPALIVE_STATUS 1050
+
+/**
+ * Custom responses for HTCQualcommRIL.java
+ */
+#define RIL_UNSOL_ENTER_LPM 1523
+#define RIL_UNSOL_ENTER_LPM_M7 3023
+#define RIL_UNSOL_CDMA_3G_INDICATOR 3009
+#define RIL_UNSOL_CDMA_3G_INDICATOR_M7 4259
+#define RIL_UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR 3012
+#define RIL_UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR_M7 4262
+#define RIL_UNSOL_CDMA_NETWORK_BASE_PLUSCODE_DIAL 3020
+#define RIL_UNSOL_CDMA_NETWORK_BASE_PLUSCODE_DIAL_M7 4270
+#define RIL_UNSOL_RESPONSE_PHONE_MODE_CHANGE 6002
+#define RIL_UNSOL_RESPONSE_PHONE_MODE_CHANGE_M7 4802
+#define RIL_UNSOL_RESPONSE_VOICE_RADIO_TECH_CHANGED 21004
+#define RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED_HTC 21005
+#define RIL_UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED 21007
+#define RIL_UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED_M7 5757
+#define RIL_UNSOL_SECTOR_ID_IND 3057
+#define RIL_UNSOL_TPMR_ID 3024
+
 
 /***********************************************************************/
 
