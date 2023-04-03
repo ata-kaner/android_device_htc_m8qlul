@@ -12,3 +12,45 @@ mode: 0771
 user: AID_SYSTEM
 group: AID_SYSTEM
 caps: 0
+
+[firmware/radio]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[firmware/wcnss]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[firmware/image/*]
+mode: 0771
+user: AID_ROOT
+group: AID_SYSTEM
+caps: 0
+
+[carrier/]
+mode: 0771
+user: AID_RADIO
+group: AID_RADIO
+caps: NET_BIND_SERVICE
+
+[devlog/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[fataldevlog/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[ramdump/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0

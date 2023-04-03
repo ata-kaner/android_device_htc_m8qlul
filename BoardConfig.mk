@@ -160,7 +160,19 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432    # 0x002000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 4294967296  # 0x100000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 10334748672 # 0x268000000 ~ 10334765056 - 16384
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-BOARD_ROOT_EXTRA_FOLDERS := firmware
+
+BOARD_ROOT_EXTRA_FOLDERS := \
+    carrier \
+    firmware/radio \
+    firmware/wcnss \
+    firmware/image \
+    custdata \
+    devlog \
+    fataldevlog \
+    ramdump \
+
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /data/tombstones:/tombstones
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
