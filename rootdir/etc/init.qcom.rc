@@ -31,7 +31,6 @@ import init.qcom.power.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
@@ -41,22 +40,13 @@ on init
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
 on fs
-
-    symlink /system/vendor/firmware/keymaster/keymaster.b00 /firmware/image/keymaste.b00
-    symlink /system/vendor/firmware/keymaster/keymaster.b01 /firmware/image/keymaste.b01
-    symlink /system/vendor/firmware/keymaster/keymaster.b02 /firmware/image/keymaste.b02
-    symlink /system/vendor/firmware/keymaster/keymaster.b03 /firmware/image/keymaste.b03
-    symlink /system/vendor/firmware/keymaster/keymaster.mdt /firmware/image/keymaste.mdt
-
     symlink /dev/block/platform/soc.0/7824900.sdhci /dev/block/bootdevice
-
     mount_all /fstab.qcom
 
     mkdir /data/persist 0700 system system
     restorecon_recursive /data/persist
 
 on post-fs
-
     chown root log /proc/vmallocinfo
     chmod 0440 /proc/vmallocinfo
 
