@@ -58,7 +58,6 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-    symlink /data/tombstones /tombstones
 
     #Radio
     mkdir /data/misc/radio 0775 system radio
