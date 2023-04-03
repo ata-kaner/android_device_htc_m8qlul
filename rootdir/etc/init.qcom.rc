@@ -43,9 +43,6 @@ on fs
     symlink /dev/block/platform/soc.0/7824900.sdhci /dev/block/bootdevice
     mount_all /fstab.qcom
 
-    mkdir /data/persist 0700 system system
-    restorecon_recursive /data/persist
-
 on post-fs
     chown root log /proc/vmallocinfo
     chmod 0440 /proc/vmallocinfo
@@ -63,11 +60,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     symlink /data/tombstones /tombstones
 
-    # Persistent time and somethingelse storage
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
-    mkdir /persist/tee 0700 system system
-    
     #Radio
     mkdir /data/misc/radio 0775 system radio
 
@@ -346,10 +338,6 @@ on boot
     # permissions for NFC
     chmod 0600 /dev/pn544
     chown nfc nfc /dev/pn544
-
-    # Chown/chmod /persist after mount
-    chown system system /persist
-    chmod 0771 /persist
 
     # pstore/ramoops previous console log
     mount pstore pstore /sys/fs/pstore
