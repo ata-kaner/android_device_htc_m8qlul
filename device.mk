@@ -269,10 +269,8 @@ PRODUCT_PACKAGES += \
     liblog_shim \
     libhlg
 
-# RIL  
+# RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.1-impl \
-    android.hardware.radio@1.1-service \
     libshim_ril
 
 # LiveDisplay
