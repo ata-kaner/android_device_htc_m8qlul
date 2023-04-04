@@ -159,10 +159,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     firmware/radio \
     firmware/wcnss \
     firmware/image \
-    custdata \
-    devlog \
-    fataldevlog \
-    ramdump \
 
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /data/tombstones:/tombstones
