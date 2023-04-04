@@ -225,7 +225,7 @@ PRODUCT_COPY_FILES += \
 
 # IPC router config
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:system/vendor/etc/sec_config
 
 # Input device config
 PRODUCT_COPY_FILES += \
