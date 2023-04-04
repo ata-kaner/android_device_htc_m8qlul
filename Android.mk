@@ -33,23 +33,12 @@ $(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
 
-MBA_IMAGES := \
-    mba.b00 mba.b01 mba.b02 mba.b03 mba.mbn mba.mdt
-
-MBA_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(MBA_IMAGES)))
-$(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "MBA firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/radio/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
-
 MODEM_IMAGES := \
     modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
     modem.b06 modem.b07 modem.b08 modem.b10 modem.b12 modem.b15 \
     modem.b16 modem.b17 modem.b18 modem.b19 modem.b20 modem.b23 \
-    modem.b24 modem.b27 modem.b28 modem.mdt
+    modem.b24 modem.b27 modem.b28 modem.mdt mba.b00 mba.b01 mba.b02 \
+    mba.b03 mba.mbn mba.mdt
 
 MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
