@@ -15,6 +15,11 @@
  */
 
  extern "C" int
- checkRequestInfo(struct RequestInfo* pRI) {
+ checkRequestInfo(struct RequestInfo*) {
 	   return 0;
  }
+
+extern "C" int
+vsnprintf() {
+  return 0;
+}
