@@ -192,6 +192,9 @@ TARGET_LD_SHIM_LIBS := \
         /system/vendor/lib64/libril-qc-qmi-1.so.so|libshim_ril.so \
         /system/vendor/lib64/libizat_core.so|libshim_izat.so
 
+# Use Snapdragon LLVM, if available
+TARGET_USE_SDCLANG := true
+
 # TWRP
 ifeq ($(WITH_TWRP),true)
 RECOVERY_VARIANT := twrp
