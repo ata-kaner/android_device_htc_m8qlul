@@ -1,3 +1,6 @@
+#TimeService app
+app/TimeService/TimeService.apk
+
 #BIN files
 bin/cand
 bin/cnd
@@ -10,6 +13,9 @@ bin/mm-qcamera-app
 bin/nl_listener
 bin/subsystem_ramdump
 bin/usb_uicc_client
+
+#Framework files
+framework/qcrilhook.jar
 
 #Firmware files
 etc/firmware/a225p5_pm4.fw:vendor/firmware/a225p5_pm4.fw
@@ -149,6 +155,7 @@ bin/msm_irqbalance:vendor/bin/msm_irqbalance
 bin/netmgrd:vendor/bin/netmgrd
 bin/ptt_socket_app:vendor/bin/ptt_socket_app
 bin/qmuxd:vendor/bin/qmuxd
+bin/radish:vendor/bin/radish
 bin/qseecomd:vendor/bin/qseecomd
 bin/rfs_access:vendor/bin/rfs_access
 bin/rmt_storage:vendor/bin/rmt_storage
@@ -703,6 +710,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/libxml.so
 
 #vendor/lib64
+vendor/lib64/libhtc_common.so
 vendor/lib64/egl/eglsubAndroid.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
