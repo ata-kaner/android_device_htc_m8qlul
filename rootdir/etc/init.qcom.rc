@@ -468,7 +468,11 @@ on boot
     # load ADSP
     write /sys/kernel/boot_adsp/boot 1
 
-service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
+service vendor.adsprpcd /system/vendor/bin/adsprpcd
+    class main
+    user media
+    group media
+
 service vendor.irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
