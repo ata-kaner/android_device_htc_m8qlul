@@ -129,6 +129,8 @@ on enable-low-power
     # Enable low power modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    setprop vendor.post_boot.parsed 1
+
     rm /data/system/perfd/default_values
     start perfd
 
