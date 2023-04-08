@@ -106,6 +106,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3=""
 
+#Power saving tweaks from tomato
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.min_freq_0=533333 \
+ro.min_freq_4=499200
+
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
