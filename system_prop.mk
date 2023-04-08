@@ -137,3 +137,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
+
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2016-10-01
