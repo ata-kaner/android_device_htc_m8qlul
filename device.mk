@@ -21,6 +21,10 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 # Inherit the vendor files
 $(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
 
+# Device was launched with L(21)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
+
+
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
@@ -199,7 +203,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     GestureHandler
 
-    PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-gesturehandler.xml:system/etc/permissions/privapp-permissions-gesturehandler.xml
 
 # GPS
