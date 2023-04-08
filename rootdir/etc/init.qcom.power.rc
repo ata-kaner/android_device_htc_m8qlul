@@ -129,7 +129,6 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu5/online 1
     write /sys/devices/system/cpu/cpu6/online 1
     write /sys/devices/system/cpu/cpu7/online 1
-    write /sys/kernel/sound_control_3/gpl_speaker_gain "3 3"
 
     # Enable low power modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
