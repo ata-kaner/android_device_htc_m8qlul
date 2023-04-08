@@ -196,7 +196,6 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.msm8916 \
     Tag
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
