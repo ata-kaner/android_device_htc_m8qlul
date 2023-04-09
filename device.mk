@@ -134,8 +134,9 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl-m8qlul \
     libmm-qcamera \
     libshim_camera \
-    Snap 
-    
+    Snap \
+    libcameraface
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hdrhax:system/vendor/etc/hdrhax
 
