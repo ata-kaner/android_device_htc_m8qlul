@@ -19,23 +19,25 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit the vendor files
 $(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
 
-# Device was launched with L(21)
+# Inherit product launch version (5.0.1-Lollipop)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
-
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay \
-                           $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += \
+$(LOCAL_PATH)/overlay \
+$(LOCAL_PATH)/overlay-lineage
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Screen density
-# Device uses ultra-high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
@@ -163,35 +165,16 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
 
+# FlipFlap (For DotView Case)
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
     FMRecord \
     libqcomfm_jni \
     qcom.fmradio
-
-# FlipFlap
-PRODUCT_PACKAGES += \
-    FlipFlap
-
-# NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
-    android.hardware.nfc@1.0-service \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
-
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access_debug.xml
-endif
-
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # Gestures
 PRODUCT_PACKAGES += \
@@ -215,6 +198,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:system/vendor/etc/flp.conf \
     $(LOCAL_PATH)/gps/etc/izat.conf:system/vendor/etc/izat.conf
 
+# Healthd
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.manager@1.0-java
+
+# HTC Log Symbols
+PRODUCT_PACKAGES += \
+    liblog_shim \
+    libhlg
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
@@ -252,28 +248,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.m8qlul \
 
-# Healthd
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.manager@1.0-java
-
-# HTC Log Symbols
-PRODUCT_PACKAGES += \
-    liblog_shim \
-    libhlg
-
-# RIL
-PRODUCT_PACKAGES += \
-    libshim_ril
-
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@1.0-service-legacymm
- 
+
 # Media config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -292,16 +270,24 @@ PRODUCT_PACKAGES += \
     libandroid_net \
     netutils-wrapper-1.0
 
-# Qualcomm
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qcom/dsi_config.xml:system/vendor/etc/data/dsi_config.xml \
-    $(LOCAL_PATH)/configs/qcom/netmgr_config.xml:system/vendor/etc/data/netmgr_config.xml \
-    $(LOCAL_PATH)/configs/qcom/qmi_config.xml:system/vendor/etc/data/qmi_config.xml
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-service \
+    com.android.nfc_extras \
+    NfcNci \
+    Tag
 
-# Seccomp
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access_debug.xml
+endif
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -336,6 +322,15 @@ PRODUCT_PACKAGES += \
 # Renderscript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
+
+# RIL
+PRODUCT_PACKAGES += \
+    libshim_ril
+
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
