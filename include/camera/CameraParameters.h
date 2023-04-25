@@ -38,7 +38,7 @@ struct Size {
     }
 };
 
-class CameraParameters
+class CameraParameters : public CameraParameters_EXT
 {
 public:
     CameraParameters();
@@ -689,6 +689,7 @@ public:
 
     /* HTC parameters */
     static const char SCENE_MODE_TEXT[];
+    static const char KEY_SMILEINFO_BYFACE_SUPPORTED[];
 
     /**
      * Returns the the supported preview formats as an enum given in graphics.h
