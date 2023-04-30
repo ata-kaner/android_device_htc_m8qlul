@@ -226,6 +226,12 @@
 /dev/uio1                 0660   system     system
 /dev/uio2                 0660   system     system
 
+
+# Amplifiers
+/dev/rt5501                 0660        system  audio
+/dev/tfa9887                0660        system  audio
+/dev/tfa9887l               0660        system  audio
+
 # SSR devices
 /dev/subsys_*         0640   system     system
 
