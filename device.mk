@@ -298,6 +298,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
 
+# QMI
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
+    
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
