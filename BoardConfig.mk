@@ -173,10 +173,6 @@ TARGET_HAS_LEGACY_POWER_STATS := true
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 
-# Properties
-TARGET_SYSTEM_PROP += \
-    $(DEVICE_PATH)/ril.prop
-
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 
