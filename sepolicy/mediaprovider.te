@@ -1,0 +1,2 @@
+allow mediaprovider rootfs:dir { read open }
+allow mediaprovider rootfs:file { read open getattr }

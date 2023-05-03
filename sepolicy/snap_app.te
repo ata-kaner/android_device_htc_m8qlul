@@ -1,0 +1,2 @@
+allow snap_app rootfs:file { create setattr read } 
+allow snap_app rootfs:dir { read open write addname }
