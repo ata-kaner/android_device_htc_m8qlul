@@ -267,14 +267,8 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access_debug.xml
-endif
-
 PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/configs/nfc/nfcee_access.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nfcee_access.xml \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
@@ -298,7 +292,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
     $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml \
     $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml
-
     
 # Ramdisk
 PRODUCT_PACKAGES += \
