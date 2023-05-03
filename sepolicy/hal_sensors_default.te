@@ -1,3 +1,0 @@
-allow hal_sensors_default sysfs:file { read write open getattr }
-allow hal_sensors_default system_data_file:dir { write addname }
-allow hal_sensors_default system_data_file:file { read write open create }

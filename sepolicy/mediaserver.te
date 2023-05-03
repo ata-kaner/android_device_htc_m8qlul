@@ -6,7 +6,6 @@ allow mediaserver mm-qcamerad:unix_dgram_socket sendto;
 allow mediaserver debugfs_heaps_system:file { getattr open read };
 allow mediaserver apk_data_file:dir search;
 
-allow mediaserver rootfs:file { read getattr write }
 allow mediaserver firmware_file:dir search;
 allow mediaserver firmware_file:file { read open getattr };
 
@@ -15,5 +14,3 @@ binder_call(mediaserver, hal_configstore)
 
 allow mediaserver camera_cal_sysfs:dir search;
 allow mediaserver camera_cal_sysfs:file r_file_perms;
-
-allow mediaserver proc_version:file { read open getattr }
