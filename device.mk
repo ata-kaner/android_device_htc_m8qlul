@@ -220,11 +220,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/hsml_touchscreen.idc:system/vendor/usr/idc/hsml_touchscreen.idc \
     $(LOCAL_PATH)/configs/idc/synaptics-rmi-touchscreen.idc:system/vendor/usr/idc/synaptics-rmi-touchscreen.idc
 
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
-
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/device-keypad.kl:system/vendor/usr/keylayout/device-keypad.kl \
