@@ -230,4 +230,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/htc/m8qlul/BoardConfigVendor.mk
+include vendor/htc/m8qlul/BoardConfigVendor.mk

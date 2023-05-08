@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit the vendor files
-$(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
+$(call inherit-product, vendor/htc/m8qlul/m8qlul-vendor.mk)
 
 # Inherit product launch version (5.0.1-Lollipop)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
