@@ -81,7 +81,7 @@ on init
     chown system system /sys/class/htc_sensorhub/sensor_hub/boot_mode
     chown system system /sys/class/htc_sensorhub/sensor_hub/ls_mechanism
     chown system system /sys/class/htc_sensorhub/sensor_hub/nvram_cali_data
-    chown system gesture_motion /sys/class/htc_sensorhub/sensor_hub/gesture_motion
+    chown system system /sys/class/htc_sensorhub/sensor_hub/gesture_motion
     chown system system /sys/class/htc_sensorhub/sensor_hub/mcu_wakeup
     chmod 0664 /sys/class/htc_sensorhub/sensor_hub/enable
     chmod 0664 /sys/class/htc_sensorhub/sensor_hub/delay_ms

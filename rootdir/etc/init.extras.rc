@@ -81,12 +81,6 @@ on init
 
 on post-fs
 
-    chown system carrier /carrier
-    chmod 0771 /carrier
-
-    restorecon_recursive /carrier
-    restorecon_recursive /preload
-
     # change mode & owner of HTC Debug Driver node
     chown root system /proc/driver/hdf
     chmod 0664 /proc/driver/hdf
