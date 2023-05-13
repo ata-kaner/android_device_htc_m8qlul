@@ -34,8 +34,6 @@ on early-init
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
-    export LD_PRELOAD "liblog_shim.so:libshim_camera.so"
-    
     chmod 0644 /proc/cmdline
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
