@@ -17,15 +17,9 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-   camera_shim.cpp
+    htc_log.c
 
-LOCAL_SHARED_LIBRARIES := \
-	libbinder \
-        libgui \
-	libui \
-        libutils
-
-LOCAL_MODULE := libshim_camera
+LOCAL_MODULE := liblog_shim
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
 include $(BUILD_SHARED_LIBRARY)
@@ -33,19 +27,9 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-   ril_shim.cpp
+    htc_log.c
 
-LOCAL_MODULE := libshim_ril
-LOCAL_MODULE_TAGS := optional
-
-include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := \
-   get_process_name.cpp
-
-LOCAL_MODULE := libshim_izat
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := libhlg
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
 include $(BUILD_SHARED_LIBRARY)
