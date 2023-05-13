@@ -202,7 +202,7 @@ PRODUCT_PACKAGES += \
 
 # HTC Log Symbols
 PRODUCT_PACKAGES += \
-    liblog_shim \
+    liblog_htc \
     libhlg
 
 # IRQ balance
