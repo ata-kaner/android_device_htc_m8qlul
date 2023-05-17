@@ -66,32 +66,32 @@ typedef struct uint24 {
 #define MAX_EQ_LINES 10
 #define MAX_EQ_SIZE (MAX_EQ_ITEM_SIZE * MAX_EQ_LINE_SIZE * MAX_EQ_LINES)
 
-#define CONFIG_TFA9887 "/vendor/etc/tfa/tfa9895.config"
-#define PATCH_TFA9887 "/vendor/etc/tfa/tfa9895.patch"
+#define CONFIG_TFA9887 "/system/vendor/etc/tfa/tfa9895.config"
+#define PATCH_TFA9887 "/system/vendor/etc/tfa/tfa9895.patch"
 
-#define SPKR_R "/vendor/etc/tfa/tfa9895.speaker"
-#define SPKR_L "/vendor/etc/tfa/tfa9895_l.speaker"
+#define SPKR_R "/system/vendor/etc/tfa/tfa9895.speaker"
+#define SPKR_L "/system/vendor/etc/tfa/tfa9895_l.speaker"
 
-#define PRESET_PLAYBACK_R "/vendor/etc/tfa/playback.preset"
-#define PRESET_PLAYBACK_L "/vendor/etc/tfa/playback_l.preset"
-#define PRESET_VOICE_R "/vendor/etc/tfa/voice.preset"
-#define PRESET_VOICE_L "/vendor/etc/tfa/voice_l.preset"
-#define PRESET_VOIP_R "/vendor/etc/tfa/voip.preset"
-#define PRESET_VOIP_L "/vendor/etc/tfa/voip_l.preset"
+#define PRESET_PLAYBACK_R "/system/vendor/etc/tfa/playback.preset"
+#define PRESET_PLAYBACK_L "/system/vendor/etc/tfa/playback_l.preset"
+#define PRESET_VOICE_R "/system/vendor/etc/tfa/voice.preset"
+#define PRESET_VOICE_L "/system/vendor/etc/tfa/voice_l.preset"
+#define PRESET_VOIP_R "/system/vendor/etc/tfa/voip.preset"
+#define PRESET_VOIP_L "/system/vendor/etc/tfa/voip_l.preset"
 
-#define EQ_PLAYBACK_R "/vendor/etc/tfa/playback.eq"
-#define EQ_PLAYBACK_L "/vendor/etc/tfa/playback_l.eq"
-#define EQ_VOICE_R "/vendor/etc/tfa/voice.eq"
-#define EQ_VOICE_L "/vendor/etc/tfa/voice_l.eq"
-#define EQ_VOIP_R "/vendor/etc/tfa/voip.eq"
-#define EQ_VOIP_L "/vendor/etc/tfa/voip_l.eq"
+#define EQ_PLAYBACK_R "/system/vendor/etc/tfa/playback.eq"
+#define EQ_PLAYBACK_L "/system/vendor/etc/tfa/playback_l.eq"
+#define EQ_VOICE_R "/system/vendor/etc/tfa/voice.eq"
+#define EQ_VOICE_L "/system/vendor/etc/tfa/voice_l.eq"
+#define EQ_VOIP_R "/system/vendor/etc/tfa/voip.eq"
+#define EQ_VOIP_L "/system/vendor/etc/tfa/voip_l.eq"
 
-#define DRC_PLAYBACK_R "/vendor/etc/tfa/playback.drc"
-#define DRC_PLAYBACK_L "/vendor/etc/tfa/playback_l.drc"
-#define DRC_VOICE_R "/vendor/etc/tfa/voice.drc"
-#define DRC_VOICE_L "/vendor/etc/tfa/voice_l.drc"
-#define DRC_VOIP_R "/vendor/etc/tfa/voip.drc"
-#define DRC_VOIP_L "/vendor/etc/tfa/voip_l.drc"
+#define DRC_PLAYBACK_R "/system/vendor/etc/tfa/playback.drc"
+#define DRC_PLAYBACK_L "/system/vendor/etc/tfa/playback_l.drc"
+#define DRC_VOICE_R "/system/vendor/etc/tfa/voice.drc"
+#define DRC_VOICE_L "/system/vendor/etc/tfa/voice_l.drc"
+#define DRC_VOIP_R "/system/vendor/etc/tfa/voip.drc"
+#define DRC_VOIP_L "/system/vendor/etc/tfa/voip_l.drc"
 
 struct mode_config_t {
     const char *preset;
@@ -123,7 +123,7 @@ enum {
 struct tfa9887_amp_t {
     int fd;
     bool is_right;
-    int mode;
+    uint32_t mode;
     bool initializing;
     bool writing;
     pthread_t write_thread;
@@ -260,8 +260,9 @@ struct tfa9887_amp_t {
 
 int tfa9887_open(void);
 int tfa9887_power(bool on);
-int tfa9887_set_mode(int mode);
+int tfa9887_set_mode(audio_mode_t mode);
 int tfa9887_set_mute(bool on);
 int tfa9887_close(void);
 
 #endif
+

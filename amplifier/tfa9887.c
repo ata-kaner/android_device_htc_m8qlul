@@ -27,7 +27,7 @@
 
 #include <sys/ioctl.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 
 #include <system/audio.h>
 #include <tinyalsa/asoundlib.h>
@@ -117,6 +117,8 @@ void * write_dummy_data(void *param)
     uint8_t *buffer;
     int size;
     struct pcm *pcm;
+    bool signaled = false;
+
     struct pcm_config config = {
         .channels = 2,
         .rate = 48000,
@@ -131,7 +133,7 @@ void * write_dummy_data(void *param)
 
     if (i2s_interface_en(true)) {
         ALOGE("%s: Failed to enable I2S interface\n", __func__);
-        return NULL;
+        goto err_signal;
     }
 
     pcm = pcm_open(0, 0, PCM_OUT | PCM_MONOTONIC, &config);
@@ -154,17 +156,41 @@ void * write_dummy_data(void *param)
         if (pcm_write(pcm, buffer, size)) {
             ALOGE("%s: pcm_write failed", __func__);
         }
-        pthread_mutex_lock(&amp->mutex);
-        amp->writing = true;
-        pthread_cond_signal(&amp->cond);
-        pthread_mutex_unlock(&amp->mutex);
+        if (!signaled) {
+            pthread_mutex_lock(&amp->mutex);
+            amp->writing = true;
+            pthread_cond_signal(&amp->cond);
+            pthread_mutex_unlock(&amp->mutex);
+            signaled = true;
+        }
     } while (amp->initializing);
 
 err_close_pcm:
     pcm_close(pcm);
 err_disable_i2s:
     i2s_interface_en(false);
+err_signal:
+    if (!signaled) {
+        pthread_mutex_lock(&amp->mutex);
+        amp->writing = true;
+        pthread_cond_signal(&amp->cond);
+        pthread_mutex_unlock(&amp->mutex);
+    }
+
     return NULL;
+}
+
+static uint32_t get_mode(audio_mode_t mode)
+{
+    switch (mode) {
+        case AUDIO_MODE_IN_CALL:
+            return TFA9887_MODE_VOICE;
+        case AUDIO_MODE_IN_COMMUNICATION:
+            return TFA9887_MODE_VOIP;
+        case AUDIO_MODE_NORMAL:
+        default:
+            return TFA9887_MODE_PLAYBACK;
+    }
 }
 
 static int read_file(const char *file_name, uint8_t *buf, int sz, int seek)
@@ -1555,7 +1581,7 @@ htc_init_err:
     return rc;
 }
 
-static int tfa9887_set_dsp_mode(struct tfa9887_amp_t *amp, int mode)
+static int tfa9887_set_dsp_mode(struct tfa9887_amp_t *amp, uint32_t mode)
 {
     int error;
     uint8_t buf[3];
@@ -1961,9 +1987,10 @@ int tfa9887_power(bool on)
     return 0;
 }
 
-int tfa9887_set_mode(int mode)
+int tfa9887_set_mode(audio_mode_t mode)
 {
     int rc, i;
+    uint32_t dsp_mode;
     struct tfa9887_amp_t *amp = NULL;
 
     if (!amps) {
@@ -1971,10 +1998,12 @@ int tfa9887_set_mode(int mode)
         return -ENODEV;
     }
 
+    dsp_mode = get_mode(mode);
+
     for (i = 0; i < AMP_MAX; i++) {
         amp = &amps[i];
-        if (mode == amp->mode) {
-            ALOGV("%s: No mode change needed, already mode %d", __func__, mode);
+        if (dsp_mode == amp->mode) {
+            ALOGV("No mode change needed, already mode %d", dsp_mode);
             continue;
         }
 
@@ -1994,10 +2023,10 @@ int tfa9887_set_mode(int mode)
             goto set_mode_i2s_shutdown;
         }
         rc = tfa9887_mute(amp, TFA9887_MUTE_DIGITAL);
-        rc = tfa9887_set_dsp_mode(amp, mode);
+        rc = tfa9887_set_dsp_mode(amp, dsp_mode);
         if (rc == 0) {
             /* Only count DSP mode switches that were successful */
-            amp->mode = mode;
+            amp->mode = dsp_mode;
         }
         rc = tfa9887_mute(amp, TFA9887_MUTE_OFF);
 
@@ -2055,3 +2084,4 @@ int tfa9887_close(void)
 
     return 0;
 }
+

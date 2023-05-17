@@ -24,7 +24,8 @@
 
 #include <log/log.h>
 #include <hardware/audio_amplifier.h>
-#include "platform.h"
+#include <msm8974/platform.h>
+
 #include "tfa9887.h"
 #include "rt5501.h"
 
@@ -62,25 +63,10 @@ static int amp_set_output_devices(amplifier_device_t *device, uint32_t devices)
     return 0;
 }
 
-static int select_profile(audio_mode_t mode)
-{
-    switch (mode) {
-        case AUDIO_MODE_RINGTONE:
-            return TFA9887_MODE_RING;
-        case AUDIO_MODE_IN_CALL:
-            return TFA9887_MODE_VOICE;
-        case AUDIO_MODE_NORMAL:
-        default:
-            return TFA9887_MODE_PLAYBACK;
-    }
-}
-
 static int amp_enable_output_devices(amplifier_device_t *device,
         uint32_t devices, bool enable)
 {
     m9_device_t *dev = (m9_device_t *) device;
-
-    int tfa_mode = select_profile(dev->current_mode);
 
     switch (devices) {
         case SND_DEVICE_OUT_SPEAKER:
@@ -91,8 +77,8 @@ static int amp_enable_output_devices(amplifier_device_t *device,
             tfa9887_power(enable);
             if (enable) {
                 tfa9887_set_mute(false);
-                tfa9887_set_mode(tfa_mode);
-                }
+                tfa9887_set_mode(dev->current_mode);
+            }
             break;
     }
 
@@ -167,3 +153,4 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .methods = &hal_module_methods,
     },
 };
+

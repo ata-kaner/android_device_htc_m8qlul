@@ -21,9 +21,9 @@
 #define RT55XX_MAX_REG_DATA 15
 
 enum {
-        RT55XX_INIT = 0,
-        RT55XX_MUTE,
-        RT55XX_MAX_FUNC
+    RT55XX_INIT = 0,
+    RT55XX_MUTE,
+    RT55XX_MAX_FUNC
 };
 
 enum RT55XX_Mode {
@@ -91,3 +91,4 @@ int rt55xx_open(void);
 int rt55xx_set_mode(audio_mode_t mode);
 
 #endif
+
