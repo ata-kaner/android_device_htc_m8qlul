@@ -3,3 +3,6 @@
 
 # RIL fix
 71210/1 http://gerrit.aicp-rom.com bionic
+
+# DTS Eagle fix
+67793/1 http://gerrit.aicp-rom.com hardware/qcom/audio
