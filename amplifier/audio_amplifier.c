@@ -24,7 +24,7 @@
 
 #include <log/log.h>
 #include <hardware/audio_amplifier.h>
-#include <msm8974/platform.h>
+#include "platform.h"
 
 #include "tfa9887.h"
 #include "rt5501.h"
