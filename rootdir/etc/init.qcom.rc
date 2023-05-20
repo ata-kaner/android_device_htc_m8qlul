@@ -24,10 +24,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import init.htc.usb.rc
-import init.extras.rc
-import init.sensors.rc
-import init.qcom.power.rc
+import /vendor/etc/init/hw/init.htc.usb.rc
+import /vendor/etc/init/hw/init.extras.rc
+import /vendor/etc/init/hw/init.sensors.rc
+import /vendor/etc/init/hw/init.qcom.power.rc
 
 on early-init
 
