@@ -395,7 +395,7 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
 
     chown system system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
-    chowh system system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+    chown system system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
 
     # Set dummy mac address
     setprop ro.boot.btmacaddr "00:00:00:00:00:00"
@@ -413,7 +413,7 @@ on charger
 on boot
 
     insmod /system/lib/modules/gspca_main.ko
-   	/system/lib/modules/spidev.ko
+   	insmod /system/lib/modules/spidev.ko
 
     # bluetooth
     chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
