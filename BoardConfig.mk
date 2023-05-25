@@ -168,15 +168,12 @@ TARGET_HAS_LEGACY_POWER_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 
-# Properties
-TARGET_SYSTEM_PROP += \
-    $(DEVICE_PATH)/ril.prop
-
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 
 # Shims
-TARGET_LD_SHIM_LIBS := /system/lib64/libhtc_rilhook.so|libshim_ril.so:/system/vendor/lib64/libizat_core.so|libshim_izat.so
+TARGET_LD_SHIM_LIBS := /system/vendor/lib64/libril-qc-qmi-1.so|libshim_ril.so \
+                       /system/vendor/lib64/libizat_core.so|libshim_izat.so
 
 # TWRP
 ifeq ($(WITH_TWRP),true)

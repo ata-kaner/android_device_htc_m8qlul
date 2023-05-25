@@ -229,7 +229,6 @@ PRODUCT_PACKAGES += \
 
 # RIL  
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.0-impl \
     libshim_ril
 
 # LiveDisplay

@@ -103,26 +103,35 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=true \
-    ril.ecclist=112,911,113,114,115,118,000,08,110,999,119 \
-    ril.subscription.types=NV,RUIM \
-    rild.libargs=-d/dev/smd0 \
-    rild.libpath=/system/lib64/libhtc_rilhook.so \
+    rild.libargs=-d /dev/smd0 \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
     ro.baseband.arch=msm \
-    ro.telephony.default_network=9 \
-    persist.radio.fill_eons=1 \
-    DEVICE_PROVISIONED=1 \
-    persist.cne.feature=0 \
-    ro.ril.telephony.mqanelements=5
+    ro.ril.telephony.mqanelements=5 \
+    ro.telephony.call_ring.multiple=false \
+    ril.ecclist=112,911,113,114,115,118,000,08,110,999,119 \
+ 
+# Radio (from HTC)
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.ril.enable.a52=0 \
+ro.ril.enable.a53=1 \
+ro.ril.hsdpa.category=24 \
+ro.ril.hsupa.category=6 \
+ro.ril.hsxpa=4 \
+ro.ril.enable.amr.wideband=1 \
+ro.ril.enable.r8fd=1 \
+ro.ril.fd.r8_tout.scr_off=2 \
+ro.ril.fd.r8_tout.scr_on=3 \
+ro.ril.enable.pre_r8fd=1 \
+ro.ril.fd.pre_r8_tout.scr_off=2 \
+ro.ril.fd.pre_r8_tout.scr_on=3 \
+ro.ril.ltefgi=1561328784 \
+ro.ril.ltefgi.rel9=2147483648 \
+ro.ril.disable.cpc=1 \
+ro.ril.lte3gpp=35
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=true
-
-# Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.call_ring.multiple=false
-
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
