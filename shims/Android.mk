@@ -43,7 +43,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-   get_process_name.cpp
+   gps_shim.cpp
 
 LOCAL_MODULE := libshim_izat
 LOCAL_MODULE_TAGS := optional
