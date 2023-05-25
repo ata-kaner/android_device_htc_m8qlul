@@ -123,8 +123,7 @@ PRODUCT_COPY_FILES += \
 # Connectivity Engine Support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    librmnetctl \
-    libxml2
+    librmnetctl
 
 # Display
 PRODUCT_PACKAGES += \
