@@ -60,13 +60,6 @@ on init
     symlink /sdcard /storage/sdcard0
 
 on fs
-
-    symlink /system/vendor/firmware/keymaster/keymaster.b00 /firmware/image/keymaste.b00
-    symlink /system/vendor/firmware/keymaster/keymaster.b01 /firmware/image/keymaste.b01
-    symlink /system/vendor/firmware/keymaster/keymaster.b02 /firmware/image/keymaste.b02
-    symlink /system/vendor/firmware/keymaster/keymaster.b03 /firmware/image/keymaste.b03
-    symlink /system/vendor/firmware/keymaster/keymaster.mdt /firmware/image/keymaste.mdt
-
     symlink /dev/block/platform/soc.0/7824900.sdhci /dev/block/bootdevice
 
     mount_all /fstab.qcom
