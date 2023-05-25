@@ -69,6 +69,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@4.0-impl \
+    audio_amplifier.msm8916 \
     audio.a2dp.default \
     audio.primary.msm8916 \
     audio.r_submix.default \
