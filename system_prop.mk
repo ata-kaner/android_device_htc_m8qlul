@@ -32,6 +32,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true
+   
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.audio.use.dts_eagle=true \
+    hpx_send_params=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.voicecall=true \
