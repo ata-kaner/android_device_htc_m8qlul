@@ -487,7 +487,12 @@ on boot
     # load ADSP
     write /sys/kernel/boot_adsp/boot 1
 
-service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
+service vendor.ppd /system/vendor/bin/mm-pp-daemon
+    class hal
+    user system
+    socket pps stream 0660 system system
+    group system graphics
+
 service vendor.irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
