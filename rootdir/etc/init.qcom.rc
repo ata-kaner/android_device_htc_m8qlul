@@ -39,7 +39,7 @@ on early-init
 on init
     export LD_PRELOAD "liblog_htc.so:libshim_camera.so"
     
-    chmod 0644 /proc/cmdline/
+    chmod 0644 /proc/cmdline
 
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
@@ -155,9 +155,6 @@ on early-boot
     write /proc/sys/vm/swappiness 100
 
 on boot
-    # Prevents permission denied error for telephony
-    chmod 0644 /proc/cmdline
-
     # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_audio 0770 media audio
     mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
