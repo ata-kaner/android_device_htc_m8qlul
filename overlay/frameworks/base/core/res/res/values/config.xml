@@ -366,4 +366,11 @@
      <!-- Check proximity sensor on wake -->
     <bool name="config_proximityCheckOnWake">true</bool>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
+
+     <!-- Default state for LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">true</bool>
+
+     <!-- Does the battery LED support multiple colors?
+     Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">false</bool>
 </resources>
