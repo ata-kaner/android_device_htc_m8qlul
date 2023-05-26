@@ -80,13 +80,6 @@ on init
     write /sys/kernel/mm/ksm/run 1
 
 on post-fs
-
-    chown system carrier /carrier
-    chmod 0771 /carrier
-
-    restorecon_recursive /carrier
-    restorecon_recursive /preload
-
     # change mode & owner of HTC Debug Driver node
     chown root system /proc/driver/hdf
     chmod 0664 /proc/driver/hdf
@@ -106,13 +99,6 @@ on boot
     chown system system /sys/class/android_usb/f_diag/on
     chown system system /sys/class/android_usb/f_rmnet/on
     chown system system /sys/devices/platform/android_usb/usb_disable
-
-    # HTC Embedded Log - BEGIN
-    chown root root /devlog
-    chmod 0700 /devlog
-    chown root root /fataldevlog
-    chmod 0700 /fataldevlog
-    # HTC Embedded Log - END
 
     # HTC SSD Peripheral TOUCH - BEGIN
     # set touch permissions
@@ -166,27 +152,8 @@ on boot
     # For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
-# Bluetooth experimental daemon to connect with Samsung's Gear smartwatches.
-# Source is actually at https://git.javispedro.com/cgit/sapd.git
-service bt-sap /system/bin/sapd 15
-    user bluetooth
-    group bluetooth net_bt_admin radio
-    class late_start
-    disabled
-    oneshot
-
 service charger /charger
     class charger
-
-on property:bluetooth.sap.status=running
-    start bt-sap
-
-on property:bluetooth.sap.status=stopped
-    stop bt-sap
-
-on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
