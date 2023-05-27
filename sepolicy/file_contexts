@@ -16,9 +16,6 @@
 # rild qcril.db
 /carrier(/.*)?                                                                        u:object_r:qcril_file:s0
 
-# Rootfs files
-/tombstones                                                                          u:object_r:rootfs:s0
-
 # Radio
 /dev/radio                                                                            u:object_r:qcril_device:s0
 

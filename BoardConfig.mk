@@ -161,9 +161,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     firmware/wcnss \
     firmware/image \
 
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /data/tombstones:/tombstones
-
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
