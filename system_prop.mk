@@ -44,7 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.spkr.cal.duration=10 \
-    persist.vendor.audio.speaker.prot.enable=true
+    persist.vendor.audio.speaker.prot.enable=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.fluencetype=fluence
