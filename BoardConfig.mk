@@ -134,11 +134,8 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8939
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
-ifeq ($(WITH_TWRP), true)
-TARGET_KERNEL_CONFIG := twrp_defconfig
-else
 TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
-endif
+
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -177,32 +174,8 @@ TARGET_LD_SHIM_LIBS := /system/vendor/lib64/libril-qc-qmi-1.so|libshim_ril.so \
                        /system/lib/liblog.so|liblog_htc.so \
                        /system/lib64/liblog.so|liblog_htc.so
 
-# TWRP
-ifeq ($(WITH_TWRP),true)
-RECOVERY_VARIANT := twrp
-TW_THEME := portrait_hdpi
-TW_NO_REBOOT_BOOTLOADER := true
-TW_NO_REBOOT_RECOVERY := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
-TW_NEW_ION_HEAP := true
-TW_TARGET_USES_QCOM_BSP := true
-TW_INCLUDE_CRYPTO := true
-TARGET_RECOVERY_DEVICE_MODULES += chargeled
-endif
-
 # Recovery
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_RECOVERY_SWIPE := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-BOARD_USES_MMCUTILS := true
-ifneq ($(WITH_TWRP),true)
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
-endif
-TARGET_RECOVERY_DENSITY := xxhdpi
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 TARGET_RIL_VARIANT := caf
