@@ -47,6 +47,29 @@ object Utils {
     }
 
     /**
+     * Write a string value to the specified file.
+     * @param filename      The filename
+     * @param value         The value
+     */
+    fun writeValueDual(filename: String?, value: String) {
+        if (filename == null) {
+            return
+        }
+        val Dualvalue = "$value $value"
+        if (DEBUG) Log.d(TAG, "writeValueDual: filename / value:$filename / $Dualvalue")
+        try {
+            val fos = FileOutputStream(File(filename))
+            fos.write(Dualvalue.toByteArray())
+            fos.flush()
+            fos.close()
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+
+    /**
      * Check if the specified file exists.
      * @param filename      The filename
      * @return              Whether the file exists or not
@@ -107,6 +130,16 @@ object Utils {
             return fileValue
         }
         if (DEBUG) Log.d(TAG, "getFileValue file / value:$filename / $defValue")
+        return defValue
+    }
+
+    fun getFileValueDual(filename: String, defValue: String): String {
+        val fileValue = readLine(filename)
+        if (DEBUG) Log.d(TAG, "getFileValueDual: file / value:$filename / $fileValue")
+        if (fileValue != null) {
+            return declutterDualValue(fileValue)
+        }
+        if (DEBUG) Log.e(TAG, "getFileValueDual: file / default value:$filename / $defValue")
         return defValue
     }
 }

@@ -2,3 +2,4 @@ allow system_app sysfs_gesture:file write;
 allow system_app sysfs_vibrator:file rw_file_perms;
 allow system_app sysfs_vibrator:dir r_dir_perms;
 allow system_app sysfs_backlight_dimmer:file rw_file_perms;
+allow system_app sysfs_headphone_gain:file rw_file_perms;

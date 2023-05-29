@@ -1,0 +1,1 @@
+genfscon sysfs /kernel/sound_control/headphone_gain u:object_r:sysfs_headphone_gain:s0
