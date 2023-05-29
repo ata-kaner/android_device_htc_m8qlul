@@ -71,7 +71,7 @@ class VibratorStrengthPreference(context: Context, attrs: AttributeSet?) : Prefe
     companion object {
         private const val DEBUG = false
         private const val TAG = "VibratorStrengthPreference"
-        private const val FILE_LEVEL = "/sys/devices/virtual/timed_output/vibrator/vtg_level"
+        private const val FILE_LEVEL = "/sys/devices/virtual/timed_output/vibrator/voltage_level"
         private val testVibrationPattern = longArrayOf(0, 250)
         val SETTINGS_KEY: String = DeviceSettings.Companion.KEY_SETTINGS_PREFIX + DeviceSettings.Companion.KEY_VIBSTRENGTH
         const val DEFAULT_VALUE = "22"
@@ -98,7 +98,7 @@ class VibratorStrengthPreference(context: Context, attrs: AttributeSet?) : Prefe
 
     init {
         // from drivers/platform/msm/qpnp-vibrator.c
-        // #define QPNP_VIB_DEFAULT_VTG_MAX	1200
+        // #define QPNP_VIB_DEFAULT_VTG_MIN	1200
         // #define QPNP_VIB_DEFAULT_VTG_MAX	3100
         mVibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         setLayoutResource(R.layout.preference_seek_bar)
