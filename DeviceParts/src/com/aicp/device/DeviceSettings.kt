@@ -31,10 +31,6 @@ class DeviceSettings : PreferenceFragment(), Preference.OnPreferenceChangeListen
         if (mVibratorStrength != null) {
             mVibratorStrength!!.setEnabled(VibratorStrengthPreference.Companion.isSupported)
         }
-        mFastChargeSwitch = findPreference(KEY_FASTCHARGE) as TwoStatePreference?
-        mFastChargeSwitch!!.setEnabled(FastChargeSwitch.Companion.isSupported)
-        mFastChargeSwitch!!.setChecked(FastChargeSwitch.Companion.isCurrentlyEnabled())
-        mFastChargeSwitch!!.setOnPreferenceChangeListener(FastChargeSwitch(getContext()))
     }
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
@@ -47,9 +43,7 @@ class DeviceSettings : PreferenceFragment(), Preference.OnPreferenceChangeListen
 
     companion object {
         const val KEY_VIBSTRENGTH = "vib_strength"
-        const val KEY_FASTCHARGE = "fastcharge"
         const val KEY_BACKLIGHT_DIMMER = "backlight_dimmer"
         const val KEY_SETTINGS_PREFIX = "device_setting_"
-        private var mFastChargeSwitch: TwoStatePreference? = null
     }
 }

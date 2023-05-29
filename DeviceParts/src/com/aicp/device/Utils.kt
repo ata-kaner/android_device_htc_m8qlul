@@ -47,31 +47,6 @@ object Utils {
     }
 
     /**
-     * Write a string value to the specified sysfs file.
-     * @param filename      The filename
-     * @param value         The value
-     */
-    fun writeValueSimple(filename: String?, value: String) {
-        if (filename == null) {
-            return
-        }
-        if (DEBUG) Log.d(TAG, "writeValueSimple filename / value:$filename / $value")
-        try {
-            val fos = FileOutputStream(File(filename))
-            val valueSimple = """
-                $value
-                
-                """.trimIndent()
-            fos.write(valueSimple.toByteArray())
-            fos.close()
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-
-    /**
      * Check if the specified file exists.
      * @param filename      The filename
      * @return              Whether the file exists or not
