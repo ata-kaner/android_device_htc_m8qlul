@@ -107,6 +107,26 @@ object Utils {
         return line
     }
 
+    /*
+     * we need this little helper method, because api offers us values for left and right.
+     * We want to handle both values equal, so only read left value.
+     * Format in sysfs file is:
+     * 1 1
+     * BUT... for some reasons, when writing in the file a -1, the value in the file is 255,
+     * -2 is 254, so we have here to do some maths...
+    */
+    fun declutterDualValue(HtcOutput: String): String {
+        val seperateDual = HtcOutput.split(" ".toRegex(), 2).toTypedArray()
+        var declutteredValue = Integer.parseUnsignedInt(seperateDual[0])
+        if (declutteredValue > 20) {
+            // The chosen variablename is like the thing it does ;-) ...
+            val declutteredandConvertedValue = declutteredValue - 256
+            declutteredValue = declutteredandConvertedValue
+        }
+        Log.i(TAG, "deplutterDualvalue: decluttered value: $declutteredValue")
+        return declutteredValue.toString()
+    }
+
     fun getFileValueAsBoolean(filename: String?, defValue: Boolean): Boolean {
         val fileValue = readLine(filename)
         return if (fileValue != null) {
