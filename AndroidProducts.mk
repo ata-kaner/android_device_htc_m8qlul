@@ -15,3 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_m8qlul.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_m8qlul-user \
+    lineage_m8qlul-userdebug \
+    lineage_m8qlul-eng
