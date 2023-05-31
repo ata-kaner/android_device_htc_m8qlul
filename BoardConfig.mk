@@ -72,7 +72,6 @@ AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
@@ -105,9 +104,6 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
-# Extended filesystem support
-TARGET_EXFAT_DRIVER := sdfat
-
 # GPS
 TARGET_GPS_HAL_PATH := $(DEVICE_PATH)/gps
 
@@ -138,9 +134,6 @@ TARGET_KERNEL_CONFIG := twrp_defconfig
 else
 TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
 endif
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
 
 # LMKD stats logging
 TARGET_LMKD_STATS_LOG := true
@@ -184,9 +177,6 @@ TARGET_LD_SHIM_LIBS := \
         /system/lib/liblog.so|liblog_htc.so \
         /system/lib64/liblog.so|liblog_htc.so \
         /system/vendor/lib/hw/camera.msm8916.so|libshim_camera.so
-
-# Use Snapdragon LLVM, if available
-TARGET_USE_SDCLANG := true
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
