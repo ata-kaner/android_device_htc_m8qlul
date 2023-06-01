@@ -185,9 +185,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     GestureHandler
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-gesturehandler.xml:system/etc/permissions/privapp-permissions-gesturehandler.xml
-
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
