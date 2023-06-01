@@ -108,27 +108,18 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE :=
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
+# BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+BOARD_DTBTOOL_ARGS := --dt-tag "htc,project-id = <"
 BOARD_KERNEL_BASE := 0x80078000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 boot_cpus=0-7 androidtouch.htc_event=1 disk_mode_enable=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_TAGS_OFFSET := 0x01d88000
-BOARD_RAMDISK_OFFSET := 0x01f88000
-TARGET_KERNEL_SOURCE := kernel/htc/msm8939
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
-ifeq ($(WITH_TWRP), true)
-TARGET_KERNEL_CONFIG := twrp_defconfig
-else
+TARGET_KERNEL_SOURCE := kernel/htc/msm8939
 TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
-endif
 
 # Legacy memfd
 TARGET_HAS_MEMFD_BACKPORT := true
