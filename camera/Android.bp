@@ -1,0 +1,18 @@
+cc_library_shared {
+
+    srcs: ["CameraFace.cpp"],
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libcamera_client",
+        "libgui",
+        "libbinder",
+        "libandroid",
+    ],
+
+    name: "libcameraface",
+
+    compile_multilib: "32",
+
+}

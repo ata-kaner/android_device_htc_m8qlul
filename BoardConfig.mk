@@ -204,6 +204,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy-minimal
 SELINUX_IGNORE_NEVERALLOWS := true
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    device/htc/m8qlul/shims \
+    device/htc/m8qlul/liblog_htc
+
 # SVELTE config
 MALLOC_SVELTE := true
 

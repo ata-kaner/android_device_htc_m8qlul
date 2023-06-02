@@ -335,10 +335,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
 
-# Soong
-PRODUCT_SOONG_NAMESPACES += \
-    device/htc/m8qlul
-
 # Thermal
 PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf \
