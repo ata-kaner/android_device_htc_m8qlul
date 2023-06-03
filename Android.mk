@@ -29,7 +29,7 @@ $(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Keymaster firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /system/vendor/firmware/keymaster/$(notdir $@)  $(TARGET_ROOT_OUT)/firmware/image/keymaste$(suffix $@)
+	$(hide) ln -sf /vendor/firmware/keymaster/$(notdir $@)  $(TARGET_ROOT_OUT)/firmware/image/keymaste$(suffix $@)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
 

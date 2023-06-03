@@ -76,7 +76,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
-    /system/vendor/bin/mm-qcamera-daemon=23
+    /vendor/bin/mm-qcamera-daemon=23
 
 # CPU
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
@@ -171,11 +171,11 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-        /system/vendor/lib64/libril-qc-qmi-1.so|libshim_ril.so \
-        /system/vendor/lib64/libizat_core.so|libshim_izat.so \
+        /vendor/lib64/libril-qc-qmi-1.so|libshim_ril.so \
+        /vendor/lib64/libizat_core.so|libshim_izat.so \
         /system/lib/liblog.so|liblog_htc.so \
         /system/lib64/liblog.so|liblog_htc.so \
-        /system/vendor/lib/hw/camera.msm8916.so|libshim_camera.so
+        /vendor/lib/hw/camera.msm8916.so|libshim_camera.so
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \

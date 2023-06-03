@@ -465,76 +465,76 @@ on boot
     # load ADSP
     write /sys/kernel/boot_adsp/boot 1
 
-service vendor.ppd /system/vendor/bin/mm-pp-daemon
+service vendor.ppd /vendor/bin/mm-pp-daemon
     class hal
     user system
     socket pps stream 0660 system system
     group system graphics
 
-service vendor.irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
+service vendor.irsc_util /vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     class main
     user root
     group root
 
-service vendor.netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.perfd /system/vendor/bin/perfd
+service vendor.perfd /vendor/bin/perfd
    user root
    disabled
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.ptt_socket_app /system/vendor/bin/ptt_socket_app
+service vendor.ptt_socket_app /vendor/bin/ptt_socket_app
     class main
     user system
     group system
     oneshot
 
-service vendor.qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
-service vendor.qmuxd /system/vendor/bin/qmuxd
+service vendor.qmuxd /vendor/bin/qmuxd
     class core
     user root
     group radio audio bluetooth gps nfc oem_2950
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.qseecomd /system/vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
     class main
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.rfs_access /system/vendor/bin/rfs_access
+service vendor.rfs_access /vendor/bin/rfs_access
    class core
    user system
    group system net_raw
 
-service vendor.rmt_storage /system/vendor/bin/rmt_storage modem_st1 modem_st2 fsc recovery radio_config cdma_record
+service vendor.rmt_storage /vendor/bin/rmt_storage modem_st1 modem_st2 fsc recovery radio_config cdma_record
     class core
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.time_daemon /system/vendor/bin/time_daemon
+service vendor.time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.vm_bms /system/vendor/bin/vm_bms
+service vendor.vm_bms /vendor/bin/vm_bms
     user root
     group root
     disabled
@@ -545,16 +545,16 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi oem_2950 radio
     oneshot
 
-service qcom-mem /system/vendor/bin/init.qcom.mem.sh
+service qcom-mem /vendor/bin/init.qcom.mem.sh
     disabled
     oneshot
 
-service vendor.wv-prov /system/vendor/bin/hcheck-v2
+service vendor.wv-prov /vendor/bin/hcheck-v2
     class late_start
     user root
     oneshot
 
-service vendor.thermal-engine /system/vendor/bin/thermal-engine -c /system/vendor/etc/thermal-engine.conf
+service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine.conf
     class hal
     user root
     socket thermal-send-client stream 0666 system system
@@ -563,7 +563,7 @@ service vendor.thermal-engine /system/vendor/bin/thermal-engine -c /system/vendo
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service hciattach /system/vendor/bin/init.qcom.bt.sh
+service hciattach /vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin
@@ -592,4 +592,4 @@ on property:apexd.status=ready
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed"
-    swapon_all /system/vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
