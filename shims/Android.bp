@@ -1,0 +1,36 @@
+soong_namespace {
+}
+
+cc_library_shared {
+
+    srcs: ["camera_shim.cpp"],
+
+    shared_libs: [
+        "libbinder",
+        "libgui",
+        "libui",
+        "libutils",
+    ],
+
+    name: "libshim_camera",
+
+    compile_multilib: "32",
+
+}
+
+cc_library_shared {
+
+    srcs: ["gps_shim.cpp"],
+
+    name: "libshim_izat",
+
+}
+
+cc_library_shared {
+
+    srcs: ["ril_shim.cpp"],
+
+    name: "libshim_ril",
+
+}
+

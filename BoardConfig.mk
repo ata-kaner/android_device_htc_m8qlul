@@ -167,6 +167,11 @@ TARGET_LD_SHIM_LIBS := \
         /system/lib64/liblog.so|liblog_htc.so \
         /system/vendor/lib/hw/camera.msm8916.so|libshim_camera.so
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    device/htc/m8qlul/shims \
+    device/htc/m8qlul/liblog_htc
+
 # TWRP
 ifeq ($(WITH_TWRP),true)
 RECOVERY_VARIANT := twrp
