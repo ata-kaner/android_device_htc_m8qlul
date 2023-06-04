@@ -52,9 +52,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.qcom.bluetooth.soc=pronto \
     ro.bluetooth.dun=true \
-    ro.bluetooth.hfp.ver=1.6 \
+    ro.bluetooth.hfp.ver=1.7 \
     ro.bluetooth.sap=true \
+    ro.qualcomm.bluetooth.hfp=true \
     ro.qualcomm.bluetooth.ftp=true \
     ro.bluetooth.remote.autoconnect=true \
     ro.bt.bdaddr_path=/sys/module/htc_bdaddress/parameters/bdaddress \
