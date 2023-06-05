@@ -73,7 +73,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/mediaserver=22 \
     /vendor/bin/mm-qcamera-daemon=23
@@ -178,7 +178,7 @@ TARGET_LD_SHIM_LIBS := \
         /vendor/lib64/libizat_core.so|libshim_izat.so \
         /system/lib/liblog.so|liblog_htc.so \
         /system/lib64/liblog.so|liblog_htc.so \
-        /vendor/lib/hw/camera.msm8916.so|libshim_camera.so
+        /vendor/lib/hw/camera.vendor.msm8916.so|libshim_camera.so
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
