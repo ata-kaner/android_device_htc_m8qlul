@@ -340,8 +340,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service
 
 # Thermal
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf
+
 PRODUCT_PACKAGES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service 
 
