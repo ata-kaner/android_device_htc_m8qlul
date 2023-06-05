@@ -4,6 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+    audio.deep_buffer.media=true \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
     vendor.audio_hal.period_size=192 \
@@ -181,7 +182,6 @@ ro.ril.ltefgi=1561328784 \
 ro.ril.ltefgi.rel9=2147483648 \
 ro.ril.disable.cpc=1 \
 ro.ril.lte3gpp=35
-
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
