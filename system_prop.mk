@@ -158,7 +158,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libargs=-d /dev/smd0 \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
     ro.baseband.arch=msm \
     ro.ril.telephony.mqanelements=5 \
     ro.telephony.call_ring.multiple=false \
