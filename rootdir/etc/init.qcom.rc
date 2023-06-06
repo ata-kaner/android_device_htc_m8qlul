@@ -557,7 +557,7 @@ service vendor.wv-prov /system/vendor/bin/hcheck-v2
     user root
     oneshot
 
-service vendor.thermal-engine /system/vendor/bin/thermal-engine -c /system/vendor/etc/thermal-engine.conf
+service vendor.thermal-engine /system/vendor/bin/thermal-engine -c /system/etc/thermal-engine.conf
     class hal
     user root
     socket thermal-send-client stream 0666 system system
