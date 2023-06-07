@@ -21,7 +21,6 @@ package com.aicp.device
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings
 
 class Startup : BroadcastReceiver() {
     override fun onReceive(context: Context, bootintent: Intent?) {
@@ -30,17 +29,7 @@ class Startup : BroadcastReceiver() {
         context.startService(serviceIntent)
     }
 
-    companion object {
-        private fun restore(file: String?, enabled: Boolean) {
-            if (file == null) {
-                return
-            }
-            Utils.writeValueSimple(file, if (enabled) "1" else "0")
-        }
-
         fun restoreAfterUserSwitch(context: Context) {
-            val enabled = Settings.System.getInt(context.getContentResolver(), FastChargeSwitch.Companion.SETTINGS_KEY, 0) != 0
-            restore(FastChargeSwitch.Companion.file, enabled)
             VibratorStrengthPreference.Companion.restore(context)
             BacklightDimmerPreference.Companion.restore(context)
         }
