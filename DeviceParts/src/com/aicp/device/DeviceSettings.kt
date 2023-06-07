@@ -44,5 +44,6 @@ class DeviceSettings : PreferenceFragment(), Preference.OnPreferenceChangeListen
         const val KEY_VIBSTRENGTH = "vib_strength"
         const val KEY_BACKLIGHT_DIMMER = "backlight_dimmer"
         const val KEY_SETTINGS_PREFIX = "device_setting_"
+        const val KEY_HEADPHONE_GAIN = "headphone_gain"
     }
 }

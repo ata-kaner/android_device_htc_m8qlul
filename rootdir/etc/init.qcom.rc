@@ -493,6 +493,10 @@ on boot
     chown system system /sys/devices/mdp.0/qcom,mdss_fb_primary.174/leds/lcd-backlight/max_brightness
     chmod 0666 /sys/devices/mdp.0/qcom,mdss_fb_primary.174/leds/lcd-backlight/max_brightness
 
+    # Headphone gain
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chmod 0666 /sys/kernel/sound_control/headphone_gain
+
 service vendor.ppd /system/vendor/bin/mm-pp-daemon
     class hal
     user system
