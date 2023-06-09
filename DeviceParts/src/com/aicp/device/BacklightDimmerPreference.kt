@@ -66,7 +66,7 @@ class BacklightDimmerPreference(context: Context?, attrs: AttributeSet?) : Prefe
     companion object {
         private const val DEBUG = false
         private const val TAG = "BacklightDimmerPreference"
-        private const val FILE_LEVEL = "/sys/devices/soc.0/1a00000.qcom,mdss_mdp/qcom,mdss_fb_primary.132/leds/lcd-backlight/max_brightness"
+        private const val FILE_LEVEL = "/sys/devices/soc.0/1a00000.qcom,mdss_mdp/qcom,mdss_fb_primary.133/leds/lcd-backlight/max_brightness"
         val SETTINGS_KEY: String = DeviceSettings.Companion.KEY_SETTINGS_PREFIX + DeviceSettings.Companion.KEY_BACKLIGHT_DIMMER
         const val DEFAULT_VALUE = "200"
         val isSupported: Boolean
