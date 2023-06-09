@@ -31,8 +31,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
      TARGET_DEVICE=htc_m8qlul \
      PRODUCT_NAME="HTC One M8s" \
      PRODUCT_DEVICE="m8qlul" \
-     PRIVATE_BUILD_DESC="2.21.401.1 CL826429 release-keys" \
-     PRODUCT_GMS_CLIENTID_BASE := android-htc
+     PRIVATE_BUILD_DESC="2.21.401.1 CL826429 release-keys"
+    
+PRODUCT_GMS_CLIENTID_BASE := android-htc
 
 BUILD_FINGERPRINT := "htc/m8qlul_htc_europe/htc_m8qlul:6.0.1/MMB29M/826429.1:user/release-keys"
 
