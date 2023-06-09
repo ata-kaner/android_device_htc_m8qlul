@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit the vendor files
 $(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
 
+# Device was launched with L
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
+
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
