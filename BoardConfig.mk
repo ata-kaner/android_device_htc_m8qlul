@@ -140,6 +140,9 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/htc/msm8939
 TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
