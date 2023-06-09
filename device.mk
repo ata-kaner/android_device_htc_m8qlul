@@ -134,7 +134,7 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl-legacy \
     libmm-qcamera \
     libshim_camera \
-    SnapdragonCamera \
+    Snap \
     libcameraface
 
 PRODUCT_COPY_FILES += \
