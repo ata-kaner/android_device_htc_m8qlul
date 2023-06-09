@@ -35,8 +35,8 @@ import androidx.preference.PreferenceViewHolder
 class VibratorStrengthPreference(context: Context, attrs: AttributeSet?) : Preference(context, attrs), SeekBar.OnSeekBarChangeListener {
     private var mSeekBar: SeekBar? = null
     private var mOldStrength = 0
-    private val mMinValue = 19
-    private val mMaxValue = 31
+    private val mMinValue = 1900
+    private val mMaxValue = 3100
     private val mVibrator: Vibrator
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
@@ -74,7 +74,7 @@ class VibratorStrengthPreference(context: Context, attrs: AttributeSet?) : Prefe
         private const val FILE_LEVEL = "/sys/devices/virtual/timed_output/vibrator/voltage_level"
         private val testVibrationPattern = longArrayOf(0, 250)
         val SETTINGS_KEY: String = DeviceSettings.Companion.KEY_SETTINGS_PREFIX + DeviceSettings.Companion.KEY_VIBSTRENGTH
-        const val DEFAULT_VALUE = "22"
+        const val DEFAULT_VALUE = "2200"
         val isSupported: Boolean
             get() = Utils.fileWritable(FILE_LEVEL)
 
@@ -97,9 +97,14 @@ class VibratorStrengthPreference(context: Context, attrs: AttributeSet?) : Prefe
     }
 
     init {
-        // from drivers/platform/msm/qpnp-vibrator.c
-        // #define QPNP_VIB_DEFAULT_VTG_MAX	1200
-        // #define QPNP_VIB_DEFAULT_VTG_MAX	3100
+        // from drivers/misc/qpnp-vibrator.c
+        // #define QPNP_VIB_DEFAULT_VTG_MAX	12
+        // #define QPNP_VIB_DEFAULT_VTG_MAX	31
+        /* 
+        m8qlul vibrator driver works differently than m8 
+        It multiplies voltage_level value with 100 and then while calculating
+        the voltage, it divides with 100 again.
+        */
         mVibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         setLayoutResource(R.layout.preference_seek_bar)
     }
