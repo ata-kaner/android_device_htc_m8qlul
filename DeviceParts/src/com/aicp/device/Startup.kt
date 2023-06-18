@@ -31,7 +31,6 @@ class Startup : BroadcastReceiver() {
 
         fun restoreAfterUserSwitch(context: Context) {
             VibratorStrengthPreference.Companion.restore(context)
-            BacklightDimmerPreference.Companion.restore(context)
             HeadphoneGainPreference.restore(context)
         }
     }
