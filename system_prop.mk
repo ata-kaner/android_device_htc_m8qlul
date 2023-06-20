@@ -5,53 +5,31 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.deep_buffer.media=true \
-    debug.stagefright.omx_default_rank.sw-audio=1 \
-    debug.stagefright.omx_default_rank=0 \
     vendor.audio_hal.period_size=192 \
-    media.aac_51_output_enabled=true \
     audio.offload.buffer.size.kb=1024 \
     audio.offload.multiple.enabled=false \
     audio.offload.gapless.enabled=false \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=false \
-    av.offload.enable=true
+    av.offload.enable=true \
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.fluence.speaker=true \
+    persist.vendor.audio.spkr.cal.duration=10 \
+    persist.vendor.audio.speaker.prot.enable=true \
+    vendor.audio.use.dts_eagle=true \
+    hpx_send_params=1 \
+    vendor.voice.path.for.pcm.voip=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
     voice.playback.conc.disabled=true \
     voice.record.conc.disabled=false \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true \
-    media.stagefright.enable-fma2dp=true \
-    media.stagefright.enable-scan=true \
     media.swhevccodectype=0 \
     media.hwhevccodectype=0 \
-    mm.enable.smoothstreaming=true \
-    mmp.enable.3g2=true \
     vendor.audio.tunnel.encode=false \
     vidc.enc.narrow.searchrange=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    mm.enable.smoothstreaming=true
-   
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.use.dts_eagle=true \
-    hpx_send_params=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=false \
-    persist.vendor.audio.fluence.speaker=true \
-    persist.vendor.audio.spkr.cal.duration=10 \
-    persist.vendor.audio.speaker.prot.enable=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.audio.sdk.fluencetype=fluence
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.voice.path.for.pcm.voip=true
 
 # BPF
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -130,7 +108,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.qcom_parser=3314291 \
-    drm.service.enabled=1
+    drm.service.enabled=1 \
+    media.aac_51_output_enabled=true \
+    mm.enable.smoothstreaming=true
+
+# system props for the MM modules
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0 \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-scan=true \
+    mmp.enable.3g2=true
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
