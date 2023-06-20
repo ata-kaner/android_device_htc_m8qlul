@@ -39,7 +39,10 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 TARGET_BOARD_PLATFORM := msm8916
+
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -85,7 +88,6 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 
 # Display
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
@@ -206,10 +208,12 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
+# include device/qcom/sepolicy-legacy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy
+    $(DEVICE_PATH)/sepolicy-minimal
+    
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # SVELTE config
 MALLOC_SVELTE := true
