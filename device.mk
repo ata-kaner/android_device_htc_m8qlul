@@ -106,7 +106,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/soundimage/srsfx_trumedia_ext_HS250.cfg:system/vendor/etc/soundimage/srsfx_trumedia_ext_HS250.cfg \
     $(LOCAL_PATH)/configs/audio/soundimage/srsfx_trumedia_ext_MAX300.cfg:system/vendor/etc/soundimage/srsfx_trumedia_ext_MAX300.cfg \
     $(LOCAL_PATH)/configs/audio/soundimage/srsfx_trumedia_int.cfg:system/vendor/etc/soundimage/srsfx_trumedia_int.cfg \
-    $(LOCAL_PATH)/configs/audio/soundimage/srsmodels.lic:system/vendor/etc/soundimage/srsmodels.lic
+    $(LOCAL_PATH)/configs/audio/soundimage/srsmodels.lic:system/vendor/etc/soundimage/srsmodels.lic \
+    $(LOCAL_PATH)/configs/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/vendor/etc/a2dp_audio_policy_configuration.xml \
