@@ -126,7 +126,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/htc/msm8939
-TARGET_KERNEL_CONFIG := m8qlul_vz_defconfig
+TARGET_KERNEL_CONFIG := lineage_m8qlul_defconfig
 TARGET_KERNEL_CLANG_COMPILE := false
 
 # Legacy memfd
