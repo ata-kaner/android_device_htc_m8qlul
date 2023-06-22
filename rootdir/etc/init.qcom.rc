@@ -472,6 +472,7 @@ service vendor.ppd /system/vendor/bin/mm-pp-daemon
     user system
     socket pps stream 0660 system system
     group system graphics
+    disabled
 
 service vendor.irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
