@@ -328,7 +328,9 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     libshim_ril \
-    libaudioclient_shim
+    libaudioclient_shim \
+    android.hardware.radio@1.2-radio-service \
+    android.hardware.radio.config@1.0-service
 
 # Seccomp
 PRODUCT_COPY_FILES += \
