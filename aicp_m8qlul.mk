@@ -23,7 +23,7 @@ PRODUCT_MODEL := HTC One M8s
 
 # AICP Device Maintainers
 PRODUCT_BUILD_PROP_OVERRIDES += \
-     DEVICE_MAINTAINERS="Chris Papageorgiou (root-expert), Atakan Erdenal (ata-kaner)" 
+     DEVICE_MAINTAINERS="ata-kaner" 
 
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \

@@ -65,7 +65,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/vendor/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/vendor/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/vendor/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-gesturehandler.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-gesturehandler.xml
 
 # Additional native libraries
@@ -187,8 +186,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl.legacy \
-    android.hardware.gnss@1.0-service.legacy \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service \
     libloc_eng \
     libloc_core \
     libgps.utils \
@@ -201,13 +200,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:system/vendor/etc/flp.conf \
     $(LOCAL_PATH)/gps/etc/izat.conf:system/vendor/etc/izat.conf
 
+# HW crypto
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
 #IPACM
-PRODUCT_COPY_FILES += \
+PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     ipacm
 
@@ -240,9 +242,7 @@ PRODUCT_COPY_FILES += \
 
 # Keystore
 PRODUCT_PACKAGES += \
-    keystore.msm8916 \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    android.hardware.keymaster@4.1-service
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -266,7 +266,9 @@ PRODUCT_PACKAGES += \
 # RIL  
 PRODUCT_PACKAGES += \
     libshim_ril \
-    libaudioclient_shim
+    libaudioclient_shim \
+    android.hardware.radio@1.2-radio-service \
+    android.hardware.radio.config@1.0-service
 
 # codeaurora telephony-ext
 PRODUCT_PACKAGES += \
@@ -276,7 +278,7 @@ PRODUCT_BOOT_JARS += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-legacymm
+    vendor.lineage.livedisplay@2.0-service-sysfs
  
 # Media config
 PRODUCT_COPY_FILES += \
@@ -305,14 +307,8 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfc/nfcee_access_debug.xml
-endif
-
 PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/vendor/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/configs/nfc/nfcee_access.xml:system/vendor/etc/nfcee_access.xml \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:system/vendor/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/vendor/etc/libnfc-nxp.conf
 
@@ -340,20 +336,19 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.msm8916 \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power-service-qti
 
 # Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat \
-    libprotobuf-cpp-lite-vendorcompat
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v28/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v28.so \
+    prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full-v28.so \
+    prebuilts/vndk/v28/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-full-v28.so \
+    prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v28.so
 
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom_first_stage \
-    fstab.swap \
     init.qcom.rc \
     init.htc.usb.rc \
     init.extras.rc \
@@ -376,7 +371,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf \
+    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service 
 
