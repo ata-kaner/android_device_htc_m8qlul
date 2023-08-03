@@ -97,7 +97,6 @@ persist.demo.hdmirotationlock=false \
 persist.hwc.mdpcomp.enable=true \
 persist.hwc.downscale_threshold=1.15 \
 ro.opengles.version=196610 \
-ro.sf.lcd_density=420 \
 persist.sys.wfd.virtual=0 \
 debug.sf.early_phase_offset_ns=1500000 \
 debug.sf.early_app_phase_offset_ns=1500000 \
@@ -112,15 +111,6 @@ ro.surface_flinger.vsync_sf_event_phase_offset_ns=2000000
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=1 \
     ro.gps.agps_provider=1
-
-# LMKD
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lmk.critical_upgrade=true \
-    ro.lmk.downgrade_pressure=60 \
-    ro.lmk.kill_heaviest_task=false \
-    ro.lmk.log_stats=true \
-    ro.lmk.upgrade_pressure=40 \
-    ro.lmk.use_psi=false
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -190,8 +190,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
     libloc_eng \
     libloc_core \
     libgps.utils \
@@ -222,6 +222,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
+#IPACM
+PRODUCT_PACKAGES += \
+    IPACM_cfg.xml \
+    ipacm
+
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/vendor/etc/sec_config
@@ -242,8 +247,7 @@ PRODUCT_COPY_FILES += \
 
 # Keystore
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    android.hardware.keymaster@4.1-service
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -312,7 +316,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom_first_stage \
     fstab.swap \
     init.qcom.rc \
-    init.htc.usb.rc \
+    init.qcom.usb.rc \
     init.extras.rc \
     init.sensors.rc \
     init.qcom.power.rc \
@@ -330,6 +334,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_ril \
     libaudioclient_shim
+
+# Tethering
+PRODUCT_PACKAGES += \
+    android.hardware.tetheroffload.config@1.0-impl \
+    android.hardware.tetheroffload.config@1.0-service \
+    android.hardware.tetheroffload.control@1.0-impl \
+    android.hardware.tetheroffload.control@1.0-service
 
 # Seccomp
 PRODUCT_COPY_FILES += \
@@ -367,7 +378,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0-service.legacy \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
@@ -379,9 +390,6 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/hostapd.accept:system/vendor/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/configs/wifi/hostapd.conf:system/vendor/etc/hostapd/hostapd_default.conf \
-    $(LOCAL_PATH)/configs/wifi/hostapd.deny:system/vendor/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf
 
@@ -397,7 +405,3 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-full-v28.so \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v28.so
 
-# WiFi Display
-ifneq ($(QCPATH),)
-PRODUCT_BOOT_JARS += WfdCommon
-endif
